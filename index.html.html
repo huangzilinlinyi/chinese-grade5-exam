@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>五年级上册语文·全册基础强化考试</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f4f7fb;color:#263238;font-family:"Microsoft YaHei","PingFang SC",Arial,sans-serif}
+.app{max-width:920px;margin:auto;padding:16px}
+.hero{background:linear-gradient(135deg,#2457d6,#6c5ce7);color:white;border-radius:22px;padding:24px 20px;box-shadow:0 10px 30px #2545a52b}
+.hero h1{margin:0 0 8px;font-size:26px}.hero p{margin:6px 0;opacity:.94}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.badge{background:#ffffff24;border:1px solid #ffffff35;padding:7px 10px;border-radius:99px;font-size:13px}
+.panel{background:white;border-radius:18px;margin:14px 0;padding:18px;box-shadow:0 5px 20px #1522380b}
+.notice{background:#fff8df;border-left:5px solid #f2b400;padding:12px 14px;border-radius:10px;line-height:1.7}
+h2{font-size:20px;margin:0 0 12px}h3{font-size:17px;margin:18px 0 10px}
+.q{border:1px solid #e5eaf2;border-radius:14px;padding:14px;margin:11px 0;background:#fff}
+.q .num{font-weight:700;color:#2457d6;margin-right:5px}.q .tag{font-size:12px;background:#eef3ff;color:#2457d6;border-radius:5px;padding:3px 6px}
+input[type=text]{width:100%;padding:11px 12px;border:1px solid #ccd5e3;border-radius:10px;font-size:16px;margin-top:9px;outline:none}
+input[type=text]:focus{border-color:#5977e9;box-shadow:0 0 0 3px #5977e91a}
+textarea{width:100%;min-height:90px;border:1px solid #ccd5e3;border-radius:10px;padding:11px;font-size:16px;resize:vertical}
+.choice{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}.choice label{border:1px solid #d9dfeb;padding:9px 13px;border-radius:10px;cursor:pointer}.choice input{margin-right:5px}
+button{border:0;border-radius:12px;padding:12px 18px;font-size:16px;cursor:pointer}
+.primary{background:#2457d6;color:white}.secondary{background:#eef2f8;color:#344054}
+.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:20px 0}
+.result{display:none}.score{font-size:34px;font-weight:800;color:#2457d6}.bar{height:12px;background:#e9edf5;border-radius:99px;overflow:hidden;margin:10px 0}.bar i{display:block;height:100%;background:#39b86f;width:0}
+.wrong{border-left:5px solid #e55353;background:#fff7f7;padding:12px;border-radius:10px;margin:10px 0;line-height:1.7}
+.right{border-left:5px solid #36a269;background:#f5fff9;padding:12px;border-radius:10px;margin:10px 0}
+.tip{background:#f1f6ff;border-radius:10px;padding:10px;margin-top:8px}
+.lesson-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px}
+.lesson{background:#f7f9fc;border-radius:10px;padding:9px;font-size:13px}
+.small{font-size:13px;color:#667085}.hidden{display:none}
+footer{text-align:center;color:#98a2b3;font-size:12px;padding:18px}
+@media(max-width:600px){.app{padding:9px}.hero{padding:20px 15px}.hero h1{font-size:22px}.panel{padding:13px}.q{padding:12px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="hero">
+<h1>📚 五年级上册语文·全册基础强化卷</h1>
+<p>重点：生字、词语、字音字形、基础积累　｜　阅读理解少量保留</p>
+<div class="badges"><span class="badge">27篇课文覆盖</span><span class="badge">输入作答，防止乱点</span><span class="badge">错题即时讲解</span><span class="badge">手机可做</span></div>
+</header>
+
+<div class="panel">
+<div class="notice">
+<b>答题方法：</b>不会也先想一想再写。提交后系统会把错题单独列出来，并告诉孩子“这个字为什么容易错、可以怎么记”。建议错题不要马上跳过，读一遍记忆口诀，再重新写一次。
+</div>
+<h3>本卷覆盖</h3>
+<div class="lesson-grid" id="lessons"></div>
+</div>
+
+<form id="exam"></form>
+<div class="actions">
+<button class="primary" type="button" onclick="submitExam()">📝 交卷并查看讲解</button>
+<button class="secondary" type="button" onclick="resetExam()">↻ 重新作答</button>
+</div>
+
+<div class="panel result" id="result">
+<h2>🎯 本次成绩</h2>
+<div class="score" id="score"></div>
+<div class="bar"><i id="bar"></i></div>
+<div id="summary"></div>
+<h2 style="margin-top:22px">🧠 错题辅导</h2>
+<div id="wrongList"></div>
+<div class="actions"><button class="primary" type="button" onclick="retryWrong()">只练错题</button></div>
+</div>
+<footer>本页面为家庭学习练习工具；建议家长根据孩子的错题重复练习。</footer>
+</div>
+
+<script>
+const lessons=[
+["第一单元","1 白鹭","2 落花生","3 桂花雨","4 珍珠鸟"],
+["第二单元","5 搭石","6 将相和","7 什么比猎豹的速度更快","8 冀中的地道战"],
+["第三单元","9 猎人海力布","10 牛郎织女（一）","11 牛郎织女（二）"],
+["第四单元","12 古诗三首","13 少年中国说（节选）","14 圆明园的毁灭","15 小岛"],
+["第五单元","16 太阳","17 松鼠"],
+["第六单元","18 慈母情深","19 父爱之舟","20 “精彩极了”和“糟糕透了”"],
+["第七单元","21 古诗词三首","22 四季之美","23 鸟的天堂","24 月迹"],
+["第八单元","25 古人谈读书","26 忆读书","27 我的“长生果”"]
+];
+
+const qs=[
+{type:"spell",lesson:"1 白鹭",p:"bái lù",a:"白鹭",tip:"“鹭”是鸟类名称，看到“路”不要直接写成“路”。记：路上没有鸟，白鹭是一种鸟。"},
+{type:"spell",lesson:"1 白鹭",p:"shì yí",a:"适宜",tip:"“宜”表示合适、适当。记：适宜=合适宜人。"},
+{type:"spell",lesson:"2 落花生",p:"fēn fù",a:"吩咐",tip:"“吩咐”是说话、交代事情，所以两个字都有“口”字旁。"},
+{type:"spell",lesson:"2 落花生",p:"ài mù",a:"爱慕",tip:"“慕”下面是“小”加“⺗”的结构，表示心里产生喜爱。记：爱慕=心里喜欢。"},
+{type:"spell",lesson:"3 桂花雨",p:"chén jìn",a:"沉浸",tip:"“浸”是三点水旁，和水有关。记：浸在水里→沉浸其中。"},
+{type:"spell",lesson:"4 珍珠鸟",p:"yǎn jiǎn",a:"眼睑",tip:"“睑”是眼皮的意思，和眼睛有关。看到“眼”就联想到眼睑=眼皮。"},
+{type:"spell",lesson:"5 搭石",p:"lǎn duò",a:"懒惰",tip:"“懒”左边是竖心旁，和心理状态有关；“惰”也表示不勤快。记：懒惰就是不想动、不勤快。"},
+{type:"spell",lesson:"5 搭石",p:"xié tiáo yǒu xù",a:"协调有序",tip:"“协”有共同合作的意思；“序”表示次序。记：大家配合得好，而且有次序。"},
+{type:"spell",lesson:"6 将相和",p:"fù jīng qǐng zuì",a:"负荆请罪",tip:"“荆”是荆条。记故事：廉颇背着荆条来认错，所以是“负荆请罪”。"},
+{type:"spell",lesson:"6 将相和",p:"lǐ zhí qì zhuàng",a:"理直气壮",tip:"“直”不是“值”。道理正确，所以说话有底气。记：有理→气壮。"},
+{type:"spell",lesson:"7 什么比猎豹的速度更快",p:"hū xiào",a:"呼啸",tip:"“啸”常和风声、飞行声联系。记：高速运动的东西发出很大的声音→呼啸而过。"},
+{type:"spell",lesson:"7 什么比猎豹的速度更快",p:"chì dào",a:"赤道",tip:"“赤”有红色、裸露之意。地球中间的一条纬线叫赤道，记“赤道在地球中间”。"},
+{type:"spell",lesson:"8 冀中的地道战",p:"qīn lüè",a:"侵略",tip:"“侵”左边是单人旁，和人有关；“略”不是“掠”。记：侵略=侵犯、抢夺别人的地方。"},
+{type:"spell",lesson:"8 冀中的地道战",p:"yǐn bì",a:"隐蔽",tip:"“隐”是隐藏；“蔽”有遮挡的意思。记：藏起来、不容易被发现→隐蔽。"},
+{type:"spell",lesson:"9 猎人海力布",p:"chóu xiè",a:"酬谢",tip:"“酬”左边是酉，常和酒、宴饮、报答联系；“谢”就是感谢。记：为了感谢而给予报答。"},
+{type:"spell",lesson:"9 猎人海力布",p:"bēng tā",a:"崩塌",tip:"“崩”有山字底，山体垮下来叫崩塌。记：山崩、地塌。"},
+{type:"spell",lesson:"10 牛郎织女（一）",p:"xiāo zi",a:"嫂子",tip:"“嫂”是女性称谓，女字旁。记：哥哥的妻子叫嫂子。"},
+{type:"spell",lesson:"10 牛郎织女（一）",p:"xī hǎn",a:"稀罕",tip:"“罕”容易少写一笔。记：稀罕=稀奇、觉得珍贵。"},
+{type:"spell",lesson:"11 牛郎织女（二）",p:"xiāng yī wéi mìng",a:"相依为命",tip:"“依”是依靠。记：彼此依靠着生活，就是相依为命。"},
+{type:"spell",lesson:"12 古诗三首",p:"jǐ hài zá shī",a:"己亥杂诗",tip:"“己”是自己；“亥”是地支之一。记诗题时注意“己”不要写成“已”。"},
+{type:"spell",lesson:"12 古诗三首",p:"tí lín ān dǐ",a:"题临安邸",tip:"“邸”指官邸、住所。记：题写在临安的官邸。"},
+{type:"spell",lesson:"13 少年中国说（节选）",p:"qián lóng",a:"潜龙",tip:"“潜”有隐藏、潜伏之意。记：潜龙勿用→龙潜伏在水下。"},
+{type:"spell",lesson:"13 少年中国说（节选）",p:"huáng huáng",a:"皇皇",tip:"“皇皇”可表示盛大、壮盛。记：堂堂正正、盛大光明的感觉。"},
+{type:"spell",lesson:"14 圆明园的毁灭",p:"huī huáng",a:"辉煌",tip:"“辉”左边是光字旁，和光亮有关；“煌”也有火光明亮的感觉。"},
+{type:"spell",lesson:"14 圆明园的毁灭",p:"qí zhēn yì bǎo",a:"奇珍异宝",tip:"“异”表示不同、特别；珍宝非常特别、珍贵→奇珍异宝。"},
+{type:"spell",lesson:"15 小岛",p:"máo dùn",a:"矛盾",tip:"“矛盾”表示两种想法、说法或事物互相冲突。记：矛刺盾牌，二者互相对立。"},
+{type:"spell",lesson:"16 太阳",p:"shè shì dù",a:"摄氏度",tip:"“摄”不要写成“射”。温度单位“摄氏度”固定写法。"},
+{type:"spell",lesson:"16 太阳",p:"fán zhí",a:"繁殖",tip:"“繁”表示多，“殖”表示生长、繁衍。记：生命不断增加、繁衍→繁殖。"},
+{type:"spell",lesson:"17 松鼠",p:"líng lóng",a:"玲珑",tip:"两个字都是王字旁，常形容小巧精致。记：小巧可爱→玲珑。"},
+{type:"spell",lesson:"17 松鼠",p:"jǐng jué",a:"警觉",tip:"“警”有警告、警醒的意思；“觉”是察觉。记：随时察觉危险→警觉。"},
+{type:"spell",lesson:"18 慈母情深",p:"yā yì",a:"压抑",tip:"“抑”右边像把情绪按住。记：把情绪压下去→压抑。"},
+{type:"spell",lesson:"18 慈母情深",p:"jūn liè",a:"龟裂",tip:"“龟裂”形容皮肤等干裂得像乌龟背上的纹路。注意这里读“jūn”。"},
+{type:"spell",lesson:"19 父爱之舟",p:"qǐ dí",a:"启迪",tip:"“启”是开启；“迪”有引导的意思。记：打开思路、受到启发→启迪。"},
+{type:"spell",lesson:"19 父爱之舟",p:"mó miè",a:"磨灭",tip:"磨擦会留下痕迹，磨灭就是使痕迹逐渐消失。"},
+{type:"spell",lesson:"20 “精彩极了”和“糟糕透了”",p:"téng tòng",a:"疼痛",tip:"“疼”病痛，“痛”也是痛苦。两个字都和身体不舒服有关。"},
+{type:"spell",lesson:"20 “精彩极了”和“糟糕透了”",p:"qíng xù",a:"情绪",tip:"“绪”左边是绞丝旁，注意不要写成“序”。情绪=人的内心感受。"},
+{type:"spell",lesson:"21 古诗词三首",p:"yú guān",a:"榆关",tip:"“榆”是榆树的榆，木字旁。记：木头旁的树名→榆。"},
+{type:"spell",lesson:"21 古诗词三首",p:"jiāng pàn",a:"江畔",tip:"“畔”是田字旁，表示田边、水边。记：江的旁边→江畔。"},
+{type:"spell",lesson:"22 四季之美",p:"lí míng",a:"黎明",tip:"黎明就是天快亮的时候。记：黑夜结束、太阳将要出来→黎明。"},
+{type:"spell",lesson:"22 四季之美",p:"xīn kuàng shén yí",a:"心旷神怡",tip:"“旷”是空旷、开阔；“怡”是愉快。记：心情开阔、精神愉快→心旷神怡。"},
+{type:"spell",lesson:"23 鸟的天堂",p:"yìng jiē bù xiá",a:"应接不暇",tip:"“暇”是空闲时间。景物太多，看不过来→应接不暇。不要写成“瑕”。"},
+{type:"spell",lesson:"24 月迹",p:"niǎo niǎo",a:"袅袅",tip:"常形容烟气、歌声等轻柔缭绕。记：轻轻上升、缭绕不断→袅袅。"},
+{type:"spell",lesson:"25 古人谈读书",p:"qǐng jiào",a:"请教",tip:"“请”是请求别人指导；“教”是教导。记：有不懂的就请教。"},
+{type:"spell",lesson:"25 古人谈读书",p:"bù chǐ xià wèn",a:"不耻下问",tip:"“耻”是以……为羞耻。记：不因为向地位、学问比自己低的人请教而觉得丢脸。"},
+{type:"spell",lesson:"26 忆读书",p:"jīn jīn yǒu wèi",a:"津津有味",tip:"“津”是口字旁里的“聿”结构，不要写成“津津有味”的“津”少三点水。记：读得很有兴趣、很有滋味。"},
+{type:"spell",lesson:"26 忆读书",p:"fán suǒ",a:"烦琐",tip:"“琐”左边是王字旁，和细小、琐碎有关。记：事情细碎、复杂→烦琐。"},
+{type:"spell",lesson:"27 我的“长生果”",p:"qiáng liè",a:"强烈",tip:"“烈”下面是四点底，表示火势很旺。记：感情像火一样有力→强烈。"},
+{type:"spell",lesson:"27 我的“长生果”",p:"qiān cháng guà dù",a:"牵肠挂肚",tip:"“牵”是牵挂；“肚”是肚子。记：心里一直惦记着，像肠子被牵着一样。"}
+];
+
+const basic=[
+{type:"choice",lesson:"1 白鹭",q:"《白鹭》中，作者把白鹭比作（  ），突出它的精巧。",opts:["一首精巧的诗","一幅油画","一片云","一盏灯"],a:0,tip:"课文开头直接用“诗”来赞美白鹭，说明白鹭平凡中有精巧之美。"},
+{type:"choice",lesson:"2 落花生",q:"《落花生》告诉我们做人更应该做怎样的人？",opts:["只讲外表的人","对别人有用的人","最有名的人","最会炫耀的人"],a:1,tip:"花生不漂亮却很有用。课文借花生告诉我们要做对别人、对社会有用的人。"},
+{type:"choice",lesson:"3 桂花雨",q:"《桂花雨》中，作者重点回忆了童年哪件事？",opts:["摘桃子","摇桂花","放风筝","捉蝴蝶"],a:1,tip:"“摇桂花”是童年最难忘的活动，也是全文重要回忆。"},
+{type:"choice",lesson:"4 珍珠鸟",q:"《珍珠鸟》的中心意思最接近下面哪一句？",opts:["速度决定一切","信赖创造美好的境界","鸟儿应该关在笼子里","越热闹越快乐"],a:1,tip:"课文最后点明：信赖往往创造出美好的境界。"},
+{type:"choice",lesson:"5 搭石",q:"《搭石》中，乡亲们走搭石时表现出的主要品质是（  ）。",opts:["自私自利","互相谦让、协调有序","争先恐后","冷漠无情"],a:1,tip:"大家互相礼让、配合默契，体现乡亲们和谐相处的美好品质。"},
+{type:"choice",lesson:"6 将相和",q:"“负荆请罪”的主人公是（  ）。",opts:["蔺相如","廉颇","赵王","秦王"],a:1,tip:"廉颇得知蔺相如官位超过自己后不服气，后来认识到错误，背着荆条向蔺相如请罪。"},
+{type:"choice",lesson:"7 什么比猎豹的速度更快",q:"这篇课文主要采用什么方式介绍速度？",opts:["按速度快慢逐级介绍","只介绍猎豹","讲一个故事","描写人物外貌"],a:0,tip:"文章不断比较速度，从人、猎豹到飞机、火箭、流星体等，层层推进。"},
+{type:"choice",lesson:"8 冀中的地道战",q:"地道战体现了冀中人民怎样的特点？",opts:["聪明勇敢、善于创造","害怕困难","喜欢冒险","只会等待"],a:0,tip:"地道战是人民群众根据实际情况创造的作战方式，体现了智慧和顽强。"},
+{type:"choice",lesson:"9 猎人海力布",q:"海力布为了让乡亲们搬家，最后怎样了？",opts:["得到宝藏","变成了石头","离开了村子","成为将军"],a:1,tip:"海力布为了救乡亲们牺牲自己，最后变成了一块石头。"},
+{type:"choice",lesson:"10 牛郎织女（一）",q:"牛郎和织女的故事属于（  ）类民间故事。",opts:["爱情传说","科幻故事","寓言故事","历史故事"],a:0,tip:"牛郎织女是中国著名民间传说，表达了对美好爱情和幸福生活的向往。"},
+{type:"choice",lesson:"13 少年中国说（节选）",q:"“少年强则国强”强调的是（  ）。",opts:["少年成长与国家未来密切相关","少年不用学习","国家与少年无关","只要身体强壮就行"],a:0,tip:"梁启超把少年的成长与国家的未来联系起来，激励少年奋发向上。"},
+{type:"choice",lesson:"14 圆明园的毁灭",q:"课文为什么既写圆明园昔日的辉煌，又写它的毁灭？",opts:["为了说明它曾经很小","为了表达对文明毁灭的惋惜和对侵略者的痛恨","为了介绍旅游路线","为了讲建筑方法"],a:1,tip:"“毁灭”与“辉煌”形成强烈对比，增强了情感表达。"},
+{type:"choice",lesson:"16 太阳",q:"《太阳》是一篇典型的（  ）说明文。",opts:["科普说明文","童话","寓言","记叙文"],a:0,tip:"文章用列数字、作比较等方法介绍太阳的特点，是科普说明文。"},
+{type:"choice",lesson:"18 慈母情深",q:"《慈母情深》中，母亲在艰苦环境中仍然怎样对待“我”？",opts:["拒绝帮助","支持“我”买书","要求“我”辍学","责怪“我”读书"],a:1,tip:"母亲虽然生活艰难，仍给“我”钱买书，表现了深沉的母爱。"},
+{type:"choice",lesson:"19 父爱之舟",q:"“父爱之舟”中的“舟”主要象征（  ）。",opts:["父亲对孩子深沉的爱与陪伴","一次普通旅行","财富","比赛"],a:0,tip:"“舟”贯穿作者的成长回忆，承载的是父亲深沉而无言的爱。"},
+{type:"choice",lesson:"22 四季之美",q:"作者写四季之美时，重点描写了什么？",opts:["每个季节最有代表性的美景","天气预报","动物比赛","城市建筑"],a:0,tip:"文章抓住春夏秋冬各自最有特点的时刻和景物来写。"},
+{type:"choice",lesson:"23 鸟的天堂",q:"《鸟的天堂》中，“鸟的天堂”实际上指的是（  ）。",opts:["一棵大榕树","一座公园","一片稻田","一座山"],a:0,tip:"作者第二次经过时看到许多鸟在大榕树上活动，因此把大榕树称为“鸟的天堂”。"},
+{type:"choice",lesson:"25 古人谈读书",q:"“知之为知之，不知为不知，是知也”告诉我们（  ）。",opts:["遇到不会的也要装懂","知道就是知道，不知道就承认不知道","永远不要提问","只背答案"],a:1,tip:"学习最重要的是诚实面对自己的知识水平，不懂就学。"},
+{type:"choice",lesson:"26 忆读书",q:"冰心认为读书时应该特别注意什么？",opts:["只看故事结局","挑选自己喜欢的书，并从中获得真情实感等收获","只读最厚的书","只看插图"],a:1,tip:"课文强调读书要有选择，并能获得知识、情感和审美等方面的收获。"},
+{type:"choice",lesson:"27 我的“长生果”",q:"作者把书比作“长生果”，主要表达了什么？",opts:["书能给人带来精神上的滋养","书真的可以让人长生不老","书很难吃","书只能用来收藏"],a:0,tip:"“长生果”是比喻，表示书籍给作者带来持续的精神营养。"}
+];
+
+const extra=[
+{type:"fill",lesson:"12 古诗三首",q:"补写诗句：我劝天公重抖擞，__________。",a:"不拘一格降人才",tip:"这是《己亥杂诗》。记住“天公抖擞”后，接“降人才”，意思是希望天公不要拘泥常规降下人才。"},
+{type:"fill",lesson:"12 古诗三首",q:"补写诗句：王师北定中原日，__________。",a:"家祭无忘告乃翁",tip:"《示儿》结尾。记：国家收复失地的那天，别忘了祭祀时告诉我这个老人。"},
+{type:"fill",lesson:"13 少年中国说（节选）",q:"补写：少年智则国智，少年富则国富，少年强则__________。",a:"国强",tip:"采用排比：少年智→国智，少年富→国富，少年强→国强。成对记最牢。"},
+{type:"fill",lesson:"14 圆明园的毁灭",q:"补写词语：众星__________月",a:"拱",tip:"“拱”有环绕、围绕的意思。许多星星围着月亮→众星拱月。"},
+{type:"fill",lesson:"16 太阳",q:"太阳虽然离我们很远，但是它与我们的关系非常__________。",a:"密切",tip:"“密切”表示关系紧密。记：太阳影响光、热、气候、生命，所以关系密切。"},
+{type:"fill",lesson:"22 四季之美",q:"秋天最美是__________。",a:"黄昏",tip:"四季之美的固定句式：春天黎明，夏天夜晚，秋天黄昏，冬天早晨。"},
+{type:"fill",lesson:"23 鸟的天堂",q:"那“鸟的天堂”的确是__________。",a:"鸟的天堂",tip:"这里是作者看到众鸟纷飞后的感叹，注意和前文“大榕树”的指代关系。"},
+{type:"fill",lesson:"25 古人谈读书",q:"默而识之，学而不厌，__________。",a:"诲人不倦",tip:"孔子谈学习和教人的态度：学习不厌倦，教导别人不疲倦。"},
+{type:"fill",lesson:"26 忆读书",q:"读书好，多读书，__________。",a:"读好书",tip:"这是全文非常重要的总结句，三个“读”字串起来记：读书好→多读书→读好书。"},
+{type:"fill",lesson:"27 我的“长生果”",q:"书，被人们称为人类文明的“__________”。",a:"长生果",tip:"“长生果”比喻书籍能给人持续的精神滋养。"}
+];
+
+const all=[...qs,...basic,...extra];
+
+function norm(s){return String(s||"").trim().replace(/[，。！？；：“”‘’、,.!?;:"'\\s]/g,"");}
+function renderLessons(){
+ document.getElementById("lessons").innerHTML=lessons.map(u=>`<div class="lesson"><b>${u[0]}</b><br>${u.slice(1).join("　")}</div>`).join("");
+}
+function renderExam(list=all){
+ const form=document.getElementById("exam");
+ form.innerHTML="";
+ let sec="";
+ const spell=list.filter(x=>x.type==="spell"), choice=list.filter(x=>x.type==="choice"), fill=list.filter(x=>x.type==="fill");
+ sec+=`<div class="panel"><h2>一、生字词语：看拼音写词语（${spell.length}题）</h2><p class="small">请直接输入完整词语。这里是本卷重点。</p>`;
+ spell.forEach((x,i)=>sec+=`<div class="q" data-key="${x.lesson}|${x.p}"><span class="num">${i+1}.</span><span class="tag">${x.lesson}</span><div style="margin-top:8px">看拼音写词语：<b>${x.p}</b></div><input type="text" id="s${i}" autocomplete="off" spellcheck="false" placeholder="请输入词语"></div>`);
+ sec+=`</div>`;
+ sec+=`<div class="panel"><h2>二、课文基础判断（${choice.length}题）</h2><p class="small">选择正确答案即可，不建议猜，先读题再作答。</p>`;
+ choice.forEach((x,i)=>sec+=`<div class="q"><span class="num">${i+1}.</span><span class="tag">${x.lesson}</span><div style="margin-top:8px"><b>${x.q}</b></div><div class="choice">${x.opts.map((o,j)=>`<label><input type="radio" name="c${i}" value="${j}">${String.fromCharCode(65+j)}. ${o}</label>`).join("")}</div></div>`);
+ sec+=`</div>`;
+ sec+=`<div class="panel"><h2>三、基础积累：补写词语或句子（${fill.length}题）</h2>`;
+ fill.forEach((x,i)=>sec+=`<div class="q"><span class="num">${i+1}.</span><span class="tag">${x.lesson}</span><div style="margin-top:8px"><b>${x.q}</b></div><input type="text" id="f${i}" autocomplete="off" spellcheck="false" placeholder="请输入答案"></div>`);
+ sec+=`</div>`;
+ sec+=`<div class="panel"><h2>四、少量阅读理解（3题）</h2>
+<div class="q"><span class="num">1.</span>“信赖，往往创造出美好的境界。”这句话说明了什么？<textarea id="r1" placeholder="用自己的话写1—2句即可"></textarea></div>
+<div class="q"><span class="num">2.</span>《落花生》中，父亲为什么把花生和桃子、石榴、苹果作比较？<textarea id="r2" placeholder="提示：想想“外表”和“有用”"></textarea></div>
+<div class="q"><span class="num">3.</span>你从《慈母情深》或《父爱之舟》中感受到父母怎样的爱？<textarea id="r3" placeholder="写出自己的理解即可"></textarea></div>
+</div>`;
+ form.innerHTML=sec;
+}
+function submitExam(){
+ const spell=all.filter(x=>x.type==="spell"), choice=all.filter(x=>x.type==="choice"), fill=all.filter(x=>x.type==="fill");
+ let correct=0,total=spell.length+choice.length+fill.length,wrong=[];
+ spell.forEach((x,i)=>{let v=norm(document.getElementById("s"+i)?.value);if(v===norm(x.a))correct++;else wrong.push({...x,user:document.getElementById("s"+i)?.value||"（未作答）"});});
+ choice.forEach((x,i)=>{let v=document.querySelector(`input[name="c${i}"]:checked`);if(v&&+v.value===x.a)correct++;else wrong.push({...x,user:v?String.fromCharCode(65+(+v.value)):"（未作答）"});});
+ fill.forEach((x,i)=>{let v=norm(document.getElementById("f"+i)?.value);if(v===norm(x.a))correct++;else wrong.push({...x,user:document.getElementById("f"+i)?.value||"（未作答）"});});
+ const pct=Math.round(correct/total*100);
+ document.getElementById("result").style.display="block";
+ document.getElementById("score").textContent=`${correct} / ${total}　（${pct}分）`;
+ document.getElementById("bar").style.width=pct+"%";
+ document.getElementById("summary").innerHTML=`<p>答对 <b>${correct}</b> 题，错题 <b>${wrong.length}</b> 题。</p>`+
+ (pct>=90?"<div class='right'>🌟 基础掌握得很好！继续保持。</div>":pct>=75?"<div class='right'>👍 基础不错，把错题再练一遍会更稳。</div>":"<div class='wrong'>💪 这次先不追求快。重点把生字词语错题重新写3遍，再做一次。</div>");
+ document.getElementById("wrongList").innerHTML=wrong.length?wrong.map((x,i)=>`
+ <div class="wrong"><b>${i+1}. ${x.lesson}</b><br>
+ ${x.type==="spell"?`拼音：<b>${x.p}</b><br>你的答案：<del>${x.user}</del><br>正确答案：<b>${x.a}</b>`:`题目：${x.q}<br>你的答案：<del>${x.user}</del><br>正确答案：<b>${x.type==="choice"?String.fromCharCode(65+x.a)+". "+x.opts[x.a]:x.a}</b>`}
+ <div class="tip">🧠 <b>记忆小老师：</b>${x.tip}</div></div>`).join(""):"<div class='right'>🎉 全部答对！没有错题。</div>";
+ window.scrollTo({top:document.getElementById("result").offsetTop-10,behavior:"smooth"});
+}
+function resetExam(){location.reload();}
+function retryWrong(){alert("错题专项练习功能：建议先把上面的“错误答案→正确答案→记忆小老师”读一遍，再回到试卷重新作答。");}
+renderLessons();renderExam();
+</script>
+</body>
+</html>
