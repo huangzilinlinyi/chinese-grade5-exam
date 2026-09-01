@@ -2,2961 +2,888 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>五年级上册语文学习</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
+*{margin:0;padding:0;box-sizing:border-box}
 body{
-    font-family:
-        "Microsoft YaHei",
-        "PingFang SC",
-        Arial,
-        sans-serif;
-    background:#f4f6f8;
-    color:#333;
+    font-family:"Microsoft YaHei","PingFang SC",Arial,sans-serif;
+    background:#f4f6f8;color:#333
 }
-
-/* 顶部 */
 .header{
     background:linear-gradient(135deg,#e67e22,#f39c12);
-    color:white;
-    padding:28px 20px;
-    text-align:center;
-    box-shadow:0 3px 10px rgba(0,0,0,.12);
+    color:#fff;padding:28px 20px;text-align:center;
+    box-shadow:0 3px 10px rgba(0,0,0,.12)
 }
+.header h1{font-size:26px;margin-bottom:8px}
+.header p{font-size:14px;opacity:.9}
 
-.header h1{
-    font-size:26px;
-    margin-bottom:8px;
-}
-
-.header p{
-    font-size:14px;
-    opacity:.9;
-}
-
-/* 进度 */
 .progress-box{
-    background:white;
-    margin:18px;
-    padding:18px;
-    border-radius:15px;
-    box-shadow:0 3px 12px rgba(0,0,0,.06);
+    background:#fff;margin:18px;padding:18px;border-radius:15px;
+    box-shadow:0 3px 12px rgba(0,0,0,.06)
 }
-
 .progress-title{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:10px;
-    font-size:15px;
-    font-weight:bold;
+    display:flex;justify-content:space-between;margin-bottom:10px;
+    font-size:15px;font-weight:bold
 }
-
 .progress-bar{
-    width:100%;
-    height:12px;
-    background:#eee;
-    border-radius:20px;
-    overflow:hidden;
+    width:100%;height:12px;background:#eee;border-radius:20px;overflow:hidden
 }
-
 .progress{
-    height:100%;
-    width:0%;
+    height:100%;width:0%;
     background:linear-gradient(90deg,#27ae60,#2ecc71);
-    border-radius:20px;
-    transition:.4s;
+    border-radius:20px;transition:.4s
 }
-
-/* 搜索 */
-.search-box{
-    margin:0 18px 20px;
-}
-
+.search-box{margin:0 18px 20px}
 .search-box input{
-    width:100%;
-    padding:14px 16px;
-    border:none;
-    border-radius:12px;
-    outline:none;
-    font-size:15px;
-    box-shadow:0 3px 12px rgba(0,0,0,.06);
+    width:100%;padding:14px 16px;border:none;border-radius:12px;
+    outline:none;font-size:15px;box-shadow:0 3px 12px rgba(0,0,0,.06)
 }
-
-/* 主体 */
-.container{
-    max-width:900px;
-    margin:auto;
-    padding:0 18px 40px;
-}
-
-/* 单元 */
-.unit{
-    margin-bottom:22px;
-}
-
+.container{max-width:900px;margin:auto;padding:0 18px 40px}
+.unit{margin-bottom:22px}
 .unit-title{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-size:20px;
-    font-weight:bold;
-    margin-bottom:12px;
-    color:#444;
+    display:flex;align-items:center;gap:10px;font-size:20px;
+    font-weight:bold;margin-bottom:12px;color:#444
 }
-
 .unit-icon{
-    width:36px;
-    height:36px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#fff3e0;
-    border-radius:10px;
+    width:36px;height:36px;display:flex;align-items:center;
+    justify-content:center;background:#fff3e0;border-radius:10px
 }
-
-/* 课文卡片 */
 .lesson{
-    background:white;
-    border-radius:14px;
-    margin-bottom:10px;
-    padding:16px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    cursor:pointer;
-    transition:.2s;
-    box-shadow:0 3px 12px rgba(0,0,0,.05);
+    background:#fff;border-radius:14px;margin-bottom:10px;padding:16px;
+    display:flex;align-items:center;justify-content:space-between;
+    cursor:pointer;transition:.2s;box-shadow:0 3px 12px rgba(0,0,0,.05)
 }
-
-.lesson:hover{
-    transform:translateY(-2px);
-    box-shadow:0 6px 18px rgba(0,0,0,.1);
-}
-
-.lesson-left{
-    display:flex;
-    align-items:center;
-    gap:13px;
-}
-
+.lesson:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.1)}
+.lesson-left{display:flex;align-items:center;gap:13px}
 .lesson-number{
-    width:40px;
-    height:40px;
-    border-radius:50%;
-    background:#fff3e0;
-    color:#e67e22;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:bold;
+    width:40px;height:40px;border-radius:50%;background:#fff3e0;
+    color:#e67e22;display:flex;align-items:center;
+    justify-content:center;font-weight:bold
 }
-
-.lesson-name{
-    font-size:17px;
-    font-weight:bold;
-}
-
-.lesson-type{
-    font-size:12px;
-    color:#999;
-    margin-top:4px;
-}
-
-.status{
-    font-size:22px;
-}
-
-.done{
-    color:#27ae60;
-}
-
-/* 特殊栏目 */
+.lesson-name{font-size:17px;font-weight:bold}
+.lesson-type{font-size:12px;color:#999;margin-top:4px}
+.status{font-size:22px}
+.done{color:#27ae60}
 .extra{
-    background:#fff;
-    border-left:5px solid #f39c12;
-    padding:13px 16px;
-    border-radius:10px;
-    margin-bottom:10px;
-    color:#666;
-    font-size:15px;
+    background:#fff;border-left:5px solid #f39c12;padding:13px 16px;
+    border-radius:10px;margin-bottom:10px;color:#666;font-size:15px
 }
+.footer{text-align:center;color:#999;font-size:13px;padding:20px}
 
-/* 底部 */
-.footer{
-    text-align:center;
-    color:#999;
-    font-size:13px;
-    padding:20px;
+.study-page{
+    display:none;max-width:900px;margin:auto;padding:20px
 }
-<!-- =========================
-     试卷学习页面
-========================= -->
+.back-btn{
+    border:none;background:#e67e22;color:white;padding:10px 18px;
+    border-radius:10px;cursor:pointer;font-size:15px;margin-bottom:20px
+}
+.study-card{
+    background:#fff;padding:25px;border-radius:18px;
+    box-shadow:0 5px 20px rgba(0,0,0,.07)
+}
+.study-title{font-size:28px;margin-bottom:8px}
+.study-info{color:#999;margin-bottom:20px}
+.quiz-intro{
+    background:#fff8ed;border-left:5px solid #f39c12;
+    padding:15px;border-radius:10px;margin-bottom:20px;
+    line-height:1.8;color:#666
+}
+.question{
+    background:#fafafa;border:1px solid #eee;border-radius:14px;
+    padding:18px;margin-bottom:16px
+}
+.question-title{font-weight:bold;font-size:16px;line-height:1.8;margin-bottom:13px}
+.option{
+    display:block;background:#fff;border:1px solid #e5e5e5;
+    border-radius:10px;padding:11px 13px;margin:8px 0;
+    cursor:pointer;transition:.2s
+}
+.option:hover{background:#fff5e8;border-color:#f39c12}
+.option input{margin-right:8px}
+.fill-input{
+    width:100%;padding:11px;border:1px solid #ddd;
+    border-radius:8px;outline:none;font-size:15px
+}
+.fill-input:focus{border-color:#f39c12}
+.answer-box{
+    display:none;margin-top:10px;background:#eafaf0;
+    color:#27ae60;padding:10px;border-radius:8px;line-height:1.7
+}
+.wrong{border:2px solid #e74c3c!important}
+.correct{border:2px solid #27ae60!important}
+.result-card{
+    background:linear-gradient(135deg,#fff3e0,#fff);
+    border-radius:16px;padding:22px;text-align:center;
+    margin-top:20px;border:1px solid #f5d5a5
+}
+.result-score{font-size:42px;font-weight:bold;color:#e67e22;margin:10px 0}
+.result-text{font-size:18px;font-weight:bold;margin-bottom:10px}
+.quiz-tip{color:#999;font-size:13px;margin-top:5px}
+.complete-btn{
+    width:100%;margin-top:25px;padding:15px;border:none;
+    border-radius:12px;background:#27ae60;color:white;
+    font-size:17px;cursor:pointer
+}
+.complete-btn:hover{opacity:.9}
+
+@media(max-width:600px){
+    .header h1{font-size:22px}
+    .lesson-name{font-size:16px}
+    .study-title{font-size:24px}
+    .study-card{padding:18px}
+}
+</style>
+</head>
+
+<body>
+
+<div id="homePage">
+
+<div class="header">
+<h1>📚 五年级上册语文</h1>
+<p>快乐学习 · 每天进步一点点</p>
+</div>
+
+<div class="progress-box">
+<div class="progress-title">
+<span>🎯 我的学习进度</span>
+<span id="progressText">0 / 25</span>
+</div>
+<div class="progress-bar">
+<div class="progress" id="progressBar"></div>
+</div>
+</div>
+
+<div class="search-box">
+<input id="searchInput" type="text"
+placeholder="🔍 搜索课文，例如：桂花雨"
+oninput="searchLesson()">
+</div>
+
+<div class="container" id="lessonContainer">
+
+<div class="unit">
+<div class="unit-title"><div class="unit-icon">🌿</div>第一单元</div>
+
+<div class="lesson" data-name="桂花雨" onclick="openLesson(1)">
+<div class="lesson-left"><div class="lesson-number">1</div>
+<div><div class="lesson-name">桂花雨</div><div class="lesson-type">课文专项试卷</div></div></div>
+<div class="status" id="status1">○</div>
+</div>
+
+<div class="lesson" data-name="落花生" onclick="openLesson(2)">
+<div class="lesson-left"><div class="lesson-number">2</div>
+<div><div class="lesson-name">落花生</div><div class="lesson-type">课文专项试卷</div></div></div>
+<div class="status" id="status2">○</div>
+</div>
+
+<div class="lesson" data-name="珍珠鸟" onclick="openLesson(3)">
+<div class="lesson-left"><div class="lesson-number">3</div>
+<div><div class="lesson-name">珍珠鸟</div><div class="lesson-type">课文专项试卷</div></div></div>
+<div class="status" id="status3">○</div>
+</div>
+
+<div class="extra">💬 口语交际：制定班级公约</div>
+<div class="extra">✍️ 习作：我的心爱之物</div>
+<div class="extra">📖 语文园地</div>
+</div>
+
+<div class="unit">
+<div class="unit-title"><div class="unit-icon">⚡</div>第二单元</div>
+
+<div class="lesson" data-name="搭石" onclick="openLesson(4)">
+<div class="lesson-left"><div class="lesson-number">4</div>
+<div><div class="lesson-name">搭石</div><div class="lesson-type">课文专项试卷</div></div></div>
+<div class="status" id="status4">○</div>
+</div>
+
+<div class="lesson" data-name="将相和" onclick="openLesson(5)">
+<div class="lesson-left"><div class="lesson-number">5</div>
+<div><div class="lesson-name">将相和</div><div class="lesson-type">课文专项试卷</div></div></div>
+<div class="status" id="status5">○</div>
+</div>
+
+<div class="lesson" data-name="什么比猎豹的速度更快" onclick="openLesson(6)">
+<div class="lesson-left"><div class="lesson-number">6</div>
+<div><div class="lesson-name">什么比猎豹的速度更快</div><div class="lesson-type">课文专项试卷</div></div></div>
+<div class="status" id="status6">○</div>
+</div>
+
+<div class="lesson" data-name="冀中的地道战" onclick="openLesson(7)">
+<div class="lesson-left"><div class="lesson-number">7</div>
+<div><div class="lesson-name">冀中的地道战</div><div class="lesson-type">课文专项试卷</div></div></div>
+<div class="status" id="status7">○</div>
+</div>
+
+<div class="extra">✍️ 习作：“漫画”老师</div>
+<div class="extra">📖 语文园地</div>
+</div>
+
+<div class="unit">
+<div class="unit-title"><div class="unit-icon">🐉</div>第三单元</div>
+
+<div class="lesson" data-name="猎人海力布" onclick="openLesson(8)">
+<div class="lesson-left"><div class="lesson-number">8</div>
+<div><div class="lesson-name">猎人海力布</div><div class="lesson-type">课文专项试卷</div></div></div>
+<div class="status" id="status8">○</div>
+</div>
+
+<div class="lesson" data-name="牛郎织女一" onclick="openLesson(9)">
+<div class="lesson-left"><div class="lesson-number">9</div>
+<div><div class="lesson-name">牛郎织女（一）</div><div class="lesson-type">课文专项试卷</div></div></div>
+<div class="status" id="status9">○</div>
+</div>
+
+<div class="lesson" data-name="牛郎织女二" onclick="openLesson(10)">
+<div class="lesson-left"><div class="lesson-number">10</div>
+<div><div class="lesson-name">牛郎织女（二）</div><div class="lesson-type">课文专项试卷</div></div></div>
+<div class="status" id="status10">○</div>
+</div>
+
+<div class="extra">💬 口语交际：讲民间故事</div>
+<div class="extra">✍️ 习作：缩写故事</div>
+<div class="extra">📖 语文园地</div>
+</div>
+
+<div class="unit">
+<div class="unit-title"><div class="unit-icon">🇨🇳</div>第四单元</div>
+
+<div class="lesson" data-name="古诗三首 示儿 题临安邸 己亥杂诗" onclick="openLesson(11)">
+<div class="lesson-left"><div class="lesson-number">11</div>
+<div><div class="lesson-name">古诗三首</div><div class="lesson-type">示儿 · 题临安邸 · 己亥杂诗</div></div></div>
+<div class="status" id="status11">○</div>
+</div>
+
+<div class="lesson" data-name="少年中国说" onclick="openLesson(12)">
+<div class="lesson-left"><div class="lesson-number">12</div>
+<div><div class="lesson-name">少年中国说（节选）</div><div class="lesson-type">课文专项试卷</div></div></div>
+<div class="status" id="status12">○</div>
+</div>
+
+<div class="lesson" data-name="圆明园的毁灭" onclick="openLesson(13)">
+<div class="lesson-left"><div class="lesson-number">13</div>
+<div><div class="lesson-name">圆明园的毁灭</div><div class="lesson-type">课文专项试卷</div></div></div>
+<div class="status" id="status13">○</div>
+</div>
+
+<div class="lesson" data-name="梅兰芳蓄须" onclick="openLesson(14)">
+<div class="lesson-left"><div class="lesson-number">14</div>
+<div><div class="lesson-name">梅兰芳蓄须</div><div class="lesson-type">课文专项试卷</div></div></div>
+<div class="status" id="status14">○</div>
+</div>
+
+<div class="extra">✍️ 习作：二十年后的家乡</div>
+<div class="extra">📖 语文园地</div>
+</div>
+
+<div class="unit">
+<div class="unit-title"><div class="unit-icon">☀️</div>第五单元</div>
+
+<div class="lesson" data-name="太阳" onclick="openLesson(15)">
+<div class="lesson-left"><div class="lesson-number">15</div>
+<div><div class="lesson-name">太阳</div><div class="lesson-type">课文专项试卷</div></div></div>
+<div class="status" id="status15">○</div>
+</div>
+
+<div class="lesson" data-name="松鼠" onclick="openLesson(16)">
+<div class="lesson-left"><div class="lesson-number">16</div>
+<div><div class="lesson-name">松鼠</div><div class="lesson-type">课文专项试卷</div></div></div>
+<div class="status" id="status16">○</div>
+</div>
+
+<div class="extra">✍️ 习作：介绍一种事物</div>
+<div class="extra">📖 习作例文：鲸</div>
+<div class="extra">📖 习作例文：风向袋的制作</div>
+</div>
+
+<div class="unit">
+<div class="unit-title"><div class="unit-icon">❤️</div>第六单元</div>
+
+<div class="lesson" data-name="慈母情深" onclick="openLesson(17)">
+<div class="lesson-left"><div class="lesson-number">17</div>
+<div><div class="lesson-name">慈母情深</div><div class="lesson-type">课文专项试卷</div></div></div>
+<div class="status" id="status17">○</div>
+</div>
+
+<div class="lesson" data-name="父爱之舟" onclick="openLesson(18)">
+<div class="lesson-left"><div class="lesson-number">18</div>
+<div><div class="lesson-name">父爱之舟</div><div class="lesson-type">课文专项试卷</div></div></div>
+<div class="status" id="status18">○</div>
+</div>
+
+<div class="lesson" data-name="精彩极了和糟糕透了" onclick="openLesson(19)">
+<div class="lesson-left"><div class="lesson-number">19</div>
+<div><div class="lesson-name">“精彩极了”和“糟糕透了”</div><div class="lesson-type">课文专项试卷</div></div></div>
+<div class="status" id="status19">○</div>
+</div>
+
+<div class="extra">💬 口语交际：父母之爱</div>
+<div class="extra">✍️ 习作：我想对您说</div>
+<div class="extra">📖 语文园地</div>
+</div>
+
+<div class="unit">
+<div class="unit-title"><div class="unit-icon">🍂</div>第七单元</div>
+
+<div class="lesson" data-name="古诗三首 山居秋暝 枫桥夜泊 长相思" onclick="openLesson(20)">
+<div class="lesson-left"><div class="lesson-number">20</div>
+<div><div class="lesson-name">古诗三首</div><div class="lesson-type">山居秋暝 · 枫桥夜泊 · 长相思</div></div></div>
+<div class="status" id="status20">○</div>
+</div>
+
+<div class="lesson" data-name="第一场雪" onclick="openLesson(21)">
+<div class="lesson-left"><div class="lesson-number">21</div>
+<div><div class="lesson-name">第一场雪</div><div class="lesson-type">课文专项试卷</div></div></div>
+<div class="status" id="status21">○</div>
+</div>
+
+<div class="lesson" data-name="白鹭" onclick="openLesson(22)">
+<div class="lesson-left"><div class="lesson-number">22</div>
+<div><div class="lesson-name">白鹭</div><div class="lesson-type">课文专项试卷</div></div></div>
+<div class="status" id="status22">○</div>
+</div>
+
+<div class="extra">✍️ 习作：我最喜爱的事物</div>
+<div class="extra">📖 语文园地</div>
+</div>
+
+<div class="unit">
+<div class="unit-title"><div class="unit-icon">📚</div>第八单元</div>
+
+<div class="lesson" data-name="古人谈读书" onclick="openLesson(23)">
+<div class="lesson-left"><div class="lesson-number">23</div>
+<div><div class="lesson-name">古人谈读书</div><div class="lesson-type">课文专项试卷</div></div></div>
+<div class="status" id="status23">○</div>
+</div>
+
+<div class="lesson" data-name="忆读书" onclick="openLesson(24)">
+<div class="lesson-left"><div class="lesson-number">24</div>
+<div><div class="lesson-name">忆读书</div><div class="lesson-type">课文专项试卷</div></div></div>
+<div class="status" id="status24">○</div>
+</div>
+
+<div class="lesson" data-name="走遍天下书为侣" onclick="openLesson(25)">
+<div class="lesson-left"><div class="lesson-number">25</div>
+<div><div class="lesson-name">走遍天下书为侣</div><div class="lesson-type">课文专项试卷</div></div></div>
+<div class="status" id="status25">○</div>
+</div>
+
+<div class="extra">✍️ 习作：推荐一本书</div>
+<div class="extra">📖 语文园地</div>
+</div>
+
+</div>
+
+<div class="footer">五年级上册语文 · 快乐学习 📖</div>
+</div>
+
+
+<!-- ================= 试卷页面 ================= -->
 
 <div class="study-page" id="studyPage">
 
-<button class="back-btn" onclick="goHome()">
-← 返回课文目录
-</button>
+<button class="back-btn" onclick="goHome()">← 返回课文目录</button>
 
 <div class="study-card">
 
 <h1 class="study-title" id="lessonTitle">课文试卷</h1>
-
-<div class="study-info" id="lessonUnit">
-第一单元
-</div>
+<div class="study-info" id="lessonUnit"></div>
 
 <div id="quizArea"></div>
-
 <div id="resultArea"></div>
 
-<button
-class="complete-btn"
-id="submitBtn"
-onclick="submitQuiz()">
+<button class="complete-btn" id="submitBtn" onclick="submitQuiz()">
 🎯 提交试卷
 </button>
 
-<button
-class="complete-btn"
-id="retryBtn"
+<button class="complete-btn" id="retryBtn"
 onclick="retryQuiz()"
-style="display:none;background:#3498db;">
+style="display:none;background:#3498db">
 🔄 再做一次
 </button>
 
 </div>
-
 </div>
-
-
-<style>
-
-/* =========================
-   试卷样式
-========================= */
-
-.quiz-intro{
-    background:#fff8ed;
-    border-left:5px solid #f39c12;
-    padding:15px;
-    border-radius:10px;
-    margin-bottom:20px;
-    line-height:1.8;
-    color:#666;
-}
-
-.question{
-    background:#fafafa;
-    border:1px solid #eee;
-    border-radius:14px;
-    padding:18px;
-    margin-bottom:16px;
-}
-
-.question-title{
-    font-weight:bold;
-    font-size:16px;
-    line-height:1.8;
-    margin-bottom:13px;
-}
-
-.option{
-    display:block;
-    background:white;
-    border:1px solid #e5e5e5;
-    border-radius:10px;
-    padding:11px 13px;
-    margin:8px 0;
-    cursor:pointer;
-    transition:.2s;
-}
-
-.option:hover{
-    background:#fff5e8;
-    border-color:#f39c12;
-}
-
-.option input{
-    margin-right:8px;
-}
-
-.fill-input{
-    width:100%;
-    padding:11px;
-    border:1px solid #ddd;
-    border-radius:8px;
-    outline:none;
-    font-size:15px;
-}
-
-.fill-input:focus{
-    border-color:#f39c12;
-}
-
-.answer-box{
-    display:none;
-    margin-top:10px;
-    background:#eafaf0;
-    color:#27ae60;
-    padding:10px;
-    border-radius:8px;
-    line-height:1.7;
-}
-
-.result-card{
-    background:linear-gradient(135deg,#fff3e0,#fff);
-    border-radius:16px;
-    padding:22px;
-    text-align:center;
-    margin-top:20px;
-    border:1px solid #f5d5a5;
-}
-
-.result-score{
-    font-size:42px;
-    font-weight:bold;
-    color:#e67e22;
-    margin:10px 0;
-}
-
-.result-text{
-    font-size:18px;
-    font-weight:bold;
-    margin-bottom:10px;
-}
-
-.wrong{
-    border:2px solid #e74c3c !important;
-}
-
-.correct{
-    border:2px solid #27ae60 !important;
-}
-
-.quiz-tip{
-    color:#999;
-    font-size:13px;
-    margin-top:5px;
-}
-
-@media(max-width:600px){
-
-    .question{
-        padding:14px;
-    }
-
-    .question-title{
-        font-size:15px;
-    }
-
-}
-
-</style>
 
 
 <script>
 
-/* =====================================================
-   五年级上册语文——25篇课文试卷题库
-===================================================== */
+/* =========================================================
+   25篇课文资料
+========================================================= */
 
-const quizData = {
-
-/* ================= 第一单元 ================= */
+const lessons={
 
 1:{
-title:"桂花雨",
-unit:"第一单元",
+name:"桂花雨",unit:"第一单元",
 questions:[
-
-{
-type:"choice",
-q:"1. 《桂花雨》的作者是（　　）。",
-options:["A. 琦君","B. 冰心","C. 巴金","D. 鲁迅"],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"2. 作者为什么喜欢桂花？",
-options:[
-"A. 因为桂花非常昂贵",
-"B. 因为桂花香气迷人，而且给作者留下了美好的童年回忆",
-"C. 因为桂花颜色最漂亮",
-"D. 因为桂花可以治病"
-],
-answer:"B"
-},
-
-{
-type:"fill",
-q:"3. 桂花盛开的时候，不说香飘十里，至少前后左右十几家邻居，没有不________。",
-answer:"浸在桂花香里的"
-},
-
-{
-type:"choice",
-q:"4. “桂花雨”指的是（　　）。",
-options:[
-"A. 下桂花形状的雨",
-"B. 摇桂花时，桂花纷纷落下，像下雨一样",
-"C. 桂花树下真的下雨",
-"D. 桂花开花的时候下雨"
-],
-answer:"B"
-},
-
-{
-type:"fill",
-q:"5. 摇桂花是作者童年时最快乐的事情之一，这件事给她留下了________的回忆。",
-answer:"美好"
-},
-
-{
-type:"choice",
-q:"6. 母亲说：“这里的桂花再香，也比不上家乡院子里的桂花。”这句话表达了母亲怎样的感情？",
-options:[
-"A. 不喜欢杭州",
-"B. 喜欢桂花，却更思念家乡",
-"C. 觉得杭州的桂花很难看",
-"D. 觉得桂花没有香味"
-],
-answer:"B"
-},
-
-{
-type:"fill",
-q:"7. 《桂花雨》通过回忆童年时代________的事情，表达了作者对故乡和童年生活的怀念。",
-answer:"摇桂花"
-},
-
-{
-type:"choice",
-q:"8. 下列说法正确的是（　　）。",
-options:[
-"A. 桂花雨是一场真正的雨",
-"B. 作者不喜欢家乡",
-"C. 桂花寄托着作者浓浓的乡情",
-"D. 作者从来没有摇过桂花"
-],
-answer:"C"
-},
-
-{
-type:"choice",
-q:"9. 文中“浸”字用得非常传神，说明桂花香（　　）。",
-options:["A. 很淡","B. 很浓","C. 没有味道","D. 很臭"],
-answer:"B"
-},
-
-{
-type:"fill",
-q:"10. 学完这篇课文，你认为作者借桂花表达了对________的思念。",
-answer:"故乡"
-}
-
+["choice","《桂花雨》的作者是（　　）。",["A.琦君","B.冰心","C.巴金","D.鲁迅"],"A"],
+["choice","作者为什么喜欢桂花？",["A.桂花很贵","B.香气迷人并留下童年美好回忆","C.颜色漂亮","D.可以治病"],"B"],
+["fill","桂花盛开的时候，不说香飘十里，至少前后左右十几家邻居，没有不________。","浸在桂花香里的"],
+["choice","“桂花雨”指的是（　　）。",["A.真的下雨","B.摇桂花时桂花纷纷落下","C.桂花树下下雨","D.桂花开花时下雨"],"B"],
+["fill","摇桂花给作者留下了________的童年回忆。","美好"],
+["choice","“这里的桂花再香，也比不上家乡院子里的桂花”表达了母亲怎样的感情？",["A.不喜欢桂花","B.思念家乡","C.讨厌杭州","D.不喜欢生活"],"B"],
+["fill","课文通过回忆童年________的事情，表达了对故乡的怀念。","摇桂花"],
+["choice","桂花在作者心中还寄托着（　　）。",["A.乡情","B.友情","C.战争","D.财富"],"A"],
+["choice","“浸”字说明桂花香气（　　）。",["A.很淡","B.很浓","C.没有味道","D.很臭"],"B"],
+["fill","作者借桂花表达了对________的思念。","故乡"]
 ]},
-
-/* ================= 第二课 ================= */
 
 2:{
-title:"落花生",
-unit:"第一单元",
+name:"落花生",unit:"第一单元",
 questions:[
-
-{
-type:"choice",
-q:"1. 《落花生》主要通过一家人谈论花生，告诉我们一个什么道理？",
-options:[
-"A. 外表漂亮最重要",
-"B. 人要做有用的人，不要只讲体面",
-"C. 花生比水果好吃",
-"D. 种花生很容易"
-],
-answer:"B"
-},
-
-{
-type:"choice",
-q:"2. 课文中父亲最赞美花生的特点是（　　）。",
-options:[
-"A. 味道好",
-"B. 价格高",
-"C. 默默无闻却很有用",
-"D. 长得漂亮"
-],
-answer:"C"
-},
-
-{
-type:"fill",
-q:"3. 花生的好处很多，有一样最可贵：它的果实________。",
-answer:"埋在地里"
-},
-
-{
-type:"choice",
-q:"4. 父亲借花生告诉“我们”的人生道理是（　　）。",
-options:[
-"A. 人要长得漂亮",
-"B. 人要有钱",
-"C. 人要做有用的人",
-"D. 人要出名"
-],
-answer:"C"
-},
-
-{
-type:"choice",
-q:"5. “人要做有用的人，不要做只讲体面，而对别人没有好处的人。”这句话的中心意思是（　　）。",
-options:[
-"A. 不要穿漂亮衣服",
-"B. 要注重内在价值和实际贡献",
-"C. 不要吃花生",
-"D. 人一定要低调"
-],
-answer:"B"
-},
-
-{
-type:"fill",
-q:"6. 《落花生》采用了________的写法。",
-answer:"借物喻人"
-},
-
-{
-type:"choice",
-q:"7. 下列人物中，谁是“落花生”一样的人？",
-options:[
-"A. 只爱炫耀的人",
-"B. 默默帮助别人的清洁工",
-"C. 只看外表的人",
-"D. 只会说不会做的人"
-],
-answer:"B"
-},
-
-{
-type:"choice",
-q:"8. 作者一家人在花生收获后做的事情是（　　）。",
-options:["A. 唱歌","B. 举行庆祝会","C. 讨论花生","D. 去卖花生"],
-answer:"C"
-},
-
-{
-type:"fill",
-q:"9. 父亲希望“我们”成为对别人________的人。",
-answer:"有好处"
-},
-
-{
-type:"choice",
-q:"10. 这篇课文告诉我们的最重要的道理是（　　）。",
-options:[
-"A. 外表比内在重要",
-"B. 人应该追求名利",
-"C. 人要做有用的人",
-"D. 花生比水果好"
-],
-answer:"C"
-}
-
+["choice","《落花生》告诉我们的主要道理是（　　）。",["A.外表重要","B.做人要有用","C.花生最好吃","D.要追求名利"],"B"],
+["choice","父亲最赞美花生的特点是（　　）。",["A.漂亮","B.昂贵","C.默默无闻却很有用","D.味道甜"],"C"],
+["fill","花生的果实________在地里。","埋"],
+["choice","“人要做有用的人”强调的是（　　）。",["A.外表","B.实际贡献","C.财富","D.名气"],"B"],
+["fill","《落花生》采用了________的写法。","借物喻人"],
+["choice","下列最符合花生精神的是（　　）。",["A.喜欢炫耀的人","B.默默帮助别人的人","C.只看外表的人","D.只说不做的人"],"B"],
+["choice","一家人在花生收获后做了什么？",["A.唱歌","B.讨论花生","C.去旅行","D.卖花生"],"B"],
+["fill","父亲希望“我们”成为对别人________的人。","有用"],
+["choice","文章赞美了哪种品质？",["A.自私","B.朴实有用","C.骄傲","D.虚荣"],"B"],
+["choice","本文告诉我们不要只看重人的（　　）。",["A.品德","B.实际作用","C.外表和体面","D.能力"],"C"]
 ]},
-
-/* ================= 第三课 ================= */
 
 3:{
-title:"珍珠鸟",
-unit:"第一单元",
+name:"珍珠鸟",unit:"第一单元",
 questions:[
-
-{
-type:"choice",
-q:"1. 《珍珠鸟》的作者是（　　）。",
-options:["A. 冯骥才","B. 冯骥","C. 琦君","D. 郭沫若"],
-answer:"B"
-},
-
-{
-type:"choice",
-q:"2. 珍珠鸟刚开始对“我”的态度是（　　）。",
-options:["A. 非常亲近","B. 十分害怕","C. 很讨厌","D. 主动攻击"],
-answer:"B"
-},
-
-{
-type:"fill",
-q:"3. 小珍珠鸟渐渐地从笼子里探出________。",
-answer:"小脑袋"
-},
-
-{
-type:"choice",
-q:"4. 珍珠鸟后来为什么越来越信任“我”？",
-options:[
-"A. 我给它很多钱",
-"B. 我尊重它、爱护它，从不伤害它",
-"C. 我把它抓在手里",
-"D. 我每天吓它"
-],
-answer:"B"
-},
-
-{
-type:"choice",
-q:"5. “信赖，往往创造出美好的境界。”这句话说明（　　）。",
-options:[
-"A. 信任可以让人与动物和谐相处",
-"B. 动物没有感情",
-"C. 人和动物不能相处",
-"D. 信任没有作用"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"6. 小珍珠鸟后来落在“我”的________。",
-answer:"肩头"
-},
-
-{
-type:"choice",
-q:"7. 本文最重要的主题是（　　）。",
-options:[
-"A. 鸟很可爱",
-"B. 信赖能够创造美好的境界",
-"C. 鸟喜欢吃东西",
-"D. 笼子很漂亮"
-],
-answer:"B"
-},
-
-{
-type:"choice",
-q:"8. 作者对珍珠鸟的态度是（　　）。",
-options:["A. 冷漠","B. 喜爱和尊重","C. 害怕","D. 厌烦"],
-answer:"B"
-},
-
-{
-type:"fill",
-q:"9. 课文最后一句是：“信赖，往往创造出________。”",
-answer:"美好的境界"
-},
-
-{
-type:"choice",
-q:"10. 这篇文章给你的启示是（　　）。",
-options:[
-"A. 对别人要有耐心和信任",
-"B. 对动物应该随意捕捉",
-"C. 只有人才能得到信任",
-"D. 不需要尊重别人"
-],
-answer:"A"
-}
-
+["choice","《珍珠鸟》的作者是（　　）。",["A.冯骥才","B.琦君","C.郭沫若","D.老舍"],"A"],
+["choice","珍珠鸟刚开始对“我”的态度是（　　）。",["A.亲近","B.害怕","C.讨厌","D.攻击"],"B"],
+["fill","小珍珠鸟渐渐地从笼子里探出________。","小脑袋"],
+["choice","珍珠鸟越来越信任“我”，主要因为（　　）。",["A.我尊重爱护它","B.我抓住它","C.我吓它","D.我喂很多食物"],"A"],
+["fill","小珍珠鸟后来落在“我”的________。","肩头"],
+["choice","“信赖，往往创造出美好的境界”说明（　　）。",["A.信任能带来和谐","B.动物没有感情","C.人和动物不能相处","D.信任没有作用"],"A"],
+["fill","课文最后一句是“信赖，往往创造出________。”","美好的境界"],
+["choice","作者对珍珠鸟的态度是（　　）。",["A.冷漠","B.喜爱尊重","C.害怕","D.厌烦"],"B"],
+["choice","本文最重要的主题是（　　）。",["A.鸟很漂亮","B.信赖创造美好境界","C.鸟会飞","D.笼子漂亮"],"B"],
+["fill","人与动物相处需要________和尊重。","信任"]
 ]},
-
-/* ================= 第二单元 ================= */
 
 4:{
-title:"搭石",
-unit:"第二单元",
+name:"搭石",unit:"第二单元",
 questions:[
-
-{
-type:"choice",
-q:"1. 《搭石》主要描写了乡亲们怎样的生活？",
-options:[
-"A. 城市生活",
-"B. 山村生活",
-"C. 海边生活",
-"D. 校园生活"
-],
-answer:"B"
-},
-
-{
-type:"fill",
-q:"2. 搭石是人们在________摆放的一排石头。",
-answer:"小溪"
-},
-
-{
-type:"choice",
-q:"3. 乡亲们走搭石时，总会注意保持协调的节奏，这体现了乡亲们怎样的品质？",
-options:[
-"A. 自私",
-"B. 懒惰",
-"C. 和谐与互助",
-"D. 骄傲"
-],
-answer:"C"
-},
-
-{
-type:"choice",
-q:"4. 文中“一排排搭石，任人走，任人踏，它们联结着故乡的小路，也联结着乡亲们美好的情感。”主要表达了（　　）。",
-options:[
-"A. 搭石很漂亮",
-"B. 搭石连接着人与人之间的情感",
-"C. 搭石很贵",
-"D. 人们喜欢石头"
-],
-answer:"B"
-},
-
-{
-type:"fill",
-q:"5. 搭石不仅连接了道路，也连接了乡亲们之间的________。",
-answer:"美好情感"
-},
-
-{
-type:"choice",
-q:"6. 老人来走搭石时，年轻人通常会怎样做？",
-options:[
-"A. 不理睬",
-"B. 赶紧离开",
-"C. 主动帮助老人",
-"D. 让老人自己走"
-],
-answer:"C"
-},
-
-{
-type:"choice",
-q:"7. 《搭石》表现了乡亲们怎样的精神品质？",
-options:[
-"A. 自私自利",
-"B. 互相谦让、尊老爱幼、和谐相处",
-"C. 争强好胜",
-"D. 冷漠无情"
-],
-answer:"B"
-},
-
-{
-type:"fill",
-q:"8. 课文通过描写搭石，赞美了乡亲们________的美好品质。",
-answer:"无私奉献、互相帮助"
-},
-
-{
-type:"choice",
-q:"9. “紧走搭石慢过桥”说明走搭石时应该（　　）。",
-options:["A. 快走","B. 慢走","C. 跳过去","D. 坐下来"],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"10. 本文借“搭石”赞美的是（　　）。",
-options:[
-"A. 自然风光",
-"B. 人与人之间的和谐关系",
-"C. 石头的坚硬",
-"D. 小溪的美丽"
-],
-answer:"B"
-}
-
+["choice","搭石通常摆放在哪里？",["A.小溪","B.马路","C.屋顶","D.田地"],"A"],
+["fill","搭石连接着故乡的小路，也联结着乡亲们美好的________。","情感"],
+["choice","走搭石时人们需要保持（　　）。",["A.协调的节奏","B.很慢的速度","C.随意跳跃","D.争抢"],"A"],
+["choice","老人来走搭石时，年轻人会（　　）。",["A.不理睬","B.主动帮助","C.嘲笑","D.离开"],"B"],
+["fill","“紧走搭石慢过桥”说明走搭石要________。","快走"],
+["choice","课文表现了乡亲们怎样的品质？",["A.自私","B.互助谦让","C.骄傲","D.冷漠"],"B"],
+["choice","搭石在文中不仅指石头，还象征（　　）。",["A.人与人之间的和谐","B.财富","C.战争","D.城市"],"A"],
+["fill","乡亲们之间有着互相________的美好品质。","谦让"],
+["choice","文章主要通过什么来表现乡亲们的美？",["A.平凡生活小事","B.神话","C.战争","D.科学实验"],"A"],
+["choice","本文赞美的是（　　）。",["A.自然风光","B.乡亲们美好的心灵","C.石头","D.小溪"],"B"]
 ]},
-
-/* ================= 将相和 ================= */
 
 5:{
-title:"将相和",
-unit:"第二单元",
+name:"将相和",unit:"第二单元",
 questions:[
-
-{
-type:"choice",
-q:"1. “将相和”中的“将”指的是（　　）。",
-options:["A. 廉颇","B. 蔺相如","C. 赵王","D. 秦王"],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"2. “相”指的是（　　）。",
-options:["A. 廉颇","B. 蔺相如","C. 秦王","D. 赵王"],
-answer:"B"
-},
-
-{
-type:"choice",
-q:"3. “将相和”的故事发生在（　　）。",
-options:["A. 春秋时期","B. 战国时期","C. 唐朝","D. 宋朝"],
-answer:"B"
-},
-
-{
-type:"choice",
-q:"4. 蔺相如面对秦王，最终成功保护了和氏璧，表现了他的（　　）。",
-options:[
-"A. 鲁莽",
-"B. 机智勇敢",
-"C. 胆小",
-"D. 自私"
-],
-answer:"B"
-},
-
-{
-type:"fill",
-q:"5. 《将相和》由三个小故事组成：________、渑池会面、负荆请罪。",
-answer:"完璧归赵"
-},
-
-{
-type:"choice",
-q:"6. 廉颇后来为什么向蔺相如负荆请罪？",
-options:[
-"A. 他知道蔺相如比自己有钱",
-"B. 他认识到蔺相如以国家利益为重",
-"C. 他害怕赵王",
-"D. 他想得到和氏璧"
-],
-answer:"B"
-},
-
-{
-type:"choice",
-q:"7. 蔺相如一再避让廉颇，主要是因为（　　）。",
-options:[
-"A. 害怕廉颇",
-"B. 不想做官",
-"C. 以国家利益为重",
-"D. 不喜欢说话"
-],
-answer:"C"
-},
-
-{
-type:"fill",
-q:"8. “负荆请罪”中的“负”意思是________。",
-answer:"背着"
-},
-
-{
-type:"choice",
-q:"9. 从《将相和》中，我们应该学习蔺相如和廉颇的什么品质？",
-options:[
-"A. 顾全大局、知错能改",
-"B. 争强好胜",
-"C. 自私自利",
-"D. 不听别人意见"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"10. 本文的中心思想是（　　）。",
-options:[
-"A. 赞美战争",
-"B. 赞美顾全大局、团结合作的精神",
-"C. 赞美秦王",
-"D. 赞美和氏璧"
-],
-answer:"B"
-}
-
+["choice","“将相和”中的“将”指（　　）。",["A.廉颇","B.蔺相如","C.赵王","D.秦王"],"A"],
+["choice","“相”指（　　）。",["A.廉颇","B.蔺相如","C.秦王","D.赵王"],"B"],
+["fill","《将相和》由完璧归赵、________、负荆请罪三个故事组成。","渑池会面"],
+["choice","蔺相如保护和氏璧，表现了他的（　　）。",["A.胆小","B.机智勇敢","C.自私","D.鲁莽"],"B"],
+["choice","廉颇后来向蔺相如负荆请罪，是因为（　　）。",["A.认识到蔺相如以国家利益为重","B.害怕蔺相如","C.想要宝玉","D.想当宰相"],"A"],
+["fill","“负荆请罪”中的“负”意思是________。","背着"],
+["choice","蔺相如一再避让廉颇，主要因为（　　）。",["A.害怕","B.顾全大局","C.不喜欢廉颇","D.不想做官"],"B"],
+["choice","廉颇是一个怎样的人？",["A.知错能改","B.胆小","C.懒惰","D.自私"],"A"],
+["fill","《将相和》告诉我们要以________为重。","国家利益"],
+["choice","本文赞美了（　　）。",["A.团结合作、顾全大局","B.争强好胜","C.个人利益","D.战争"],"A"]
 ]},
-
-/* ================= 猎豹 ================= */
 
 6:{
-title:"什么比猎豹的速度更快",
-unit:"第二单元",
+name:"什么比猎豹的速度更快",unit:"第二单元",
 questions:[
-
-{
-type:"choice",
-q:"1. 猎豹奔跑的速度大约可以达到每小时（　　）。",
-options:["A. 60千米","B. 100千米","C. 110千米","D. 200千米"],
-answer:"C"
-},
-
-{
-type:"choice",
-q:"2. 本文主要采用了什么说明方法来介绍速度？",
-options:[
-"A. 列数字",
-"B. 讲故事",
-"C. 写人物",
-"D. 写景"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"3. 光的速度比声音的速度________。",
-answer:"快"
-},
-
-{
-type:"choice",
-q:"4. 本文主要说明的是（　　）。",
-options:[
-"A. 猎豹最慢",
-"B. 世界上各种事物速度越来越快",
-"C. 动物都不会奔跑",
-"D. 人的速度最快"
-],
-answer:"B"
-},
-
-{
-type:"choice",
-q:"5. 下列速度最快的是（　　）。",
-options:["A. 人","B. 猎豹","C. 鸵鸟","D. 光"],
-answer:"D"
-},
-
-{
-type:"fill",
-q:"6. 作者按照速度由________到________的顺序进行说明。",
-answer:"慢；快"
-},
-
-{
-type:"choice",
-q:"7. “光的速度是惊人的”说明光具有（　　）的速度。",
-options:["A. 很慢","B. 极快","C. 普通","D. 不稳定"],
-answer:"B"
-},
-
-{
-type:"choice",
-q:"8. 本文最大的写作特点是（　　）。",
-options:[
-"A. 说明清楚，层层推进",
-"B. 全文都是故事",
-"C. 只写猎豹",
-"D. 没有数据"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"9. 课文中使用了大量________，让读者更直观地了解速度。",
-answer:"数字"
-},
-
-{
-type:"choice",
-q:"10. 这篇文章属于（　　）。",
-options:["A. 说明文","B. 童话","C. 寓言","D. 古诗"],
-answer:"A"
-}
-
+["choice","猎豹的速度大约可达到每小时（　　）。",["A.60千米","B.110千米","C.20千米","D.30千米"],"B"],
+["choice","本文属于（　　）。",["A.说明文","B.童话","C.寓言","D.诗歌"],"A"],
+["fill","作者按照速度由________到________的顺序进行说明。","慢；快"],
+["choice","课文大量使用数字，是为了（　　）。",["A.说明更准确","B.增加故事","C.制造悬念","D.描写人物"],"A"],
+["choice","下列速度最快的是（　　）。",["A.人","B.猎豹","C.鸵鸟","D.光"],"D"],
+["fill","光的速度比声音的速度________。","快"],
+["choice","“130万个地球才能抵得上一个太阳”属于（　　）。",["A.与本文无关","B.本文没有此内容","C.错误说法","D.干扰项"],"D"],
+["choice","本文最大的特点是（　　）。",["A.层层比较速度","B.写人物","C.写故事","D.写诗"],"A"],
+["fill","说明文常用________让说明更加准确。","列数字"],
+["choice","本文主要让我们了解（　　）。",["A.各种事物的速度","B.动物饮食","C.自然景色","D.人物故事"],"A"]
 ]},
-
-/* ================= 地道战 ================= */
 
 7:{
-title:"冀中的地道战",
-unit:"第二单元",
+name:"冀中的地道战",unit:"第二单元",
 questions:[
-
-{
-type:"choice",
-q:"1. 冀中的地道战发生在（　　）时期。",
-options:["A. 抗日战争","B. 解放战争","C. 春秋时期","D. 唐朝"],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"2. 冀中人民挖地道的主要目的是（　　）。",
-options:[
-"A. 玩耍",
-"B. 躲避敌人的扫荡，进行抗日斗争",
-"C. 储存粮食",
-"D. 建造房屋"
-],
-answer:"B"
-},
-
-{
-type:"fill",
-q:"3. 地道战充分表现了冀中人民的________和________。",
-answer:"智慧；勇敢"
-},
-
-{
-type:"choice",
-q:"4. 地道里设置各种机关，主要是为了（　　）。",
-options:[
-"A. 装饰",
-"B. 防御敌人",
-"C. 休息",
-"D. 储存书籍"
-],
-answer:"B"
-},
-
-{
-type:"choice",
-q:"5. 地道战的特点不包括（　　）。",
-options:["A. 隐蔽性强","B. 防御性强","C. 方便抗日","D. 只能用来睡觉"],
-answer:"D"
-},
-
-{
-type:"fill",
-q:"6. 冀中人民利用地道开展了________斗争。",
-answer:"抗日"
-},
-
-{
-type:"choice",
-q:"7. 本文主要赞美了（　　）。",
-options:[
-"A. 敌人的强大",
-"B. 人民群众的智慧和抗战精神",
-"C. 地道的漂亮",
-"D. 战争的残酷"
-],
-answer:"B"
-},
-
-{
-type:"choice",
-q:"8. 地道战能够坚持下来的重要原因是（　　）。",
-options:[
-"A. 人民群众团结一致",
-"B. 没有人参加",
-"C. 敌人帮助",
-"D. 没有危险"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"9. 地道战是抗日战争时期冀中人民创造的________战术。",
-answer:"独特"
-},
-
-{
-type:"choice",
-q:"10. 学完本文，你最应该学习的精神是（　　）。",
-options:[
-"A. 勇敢、智慧、团结",
-"B. 胆小",
-"C. 自私",
-"D. 逃避责任"
-],
-answer:"A"
-}
-
+["choice","地道战发生在（　　）时期。",["A.抗日战争","B.春秋时期","C.唐朝","D.解放战争"],"A"],
+["choice","冀中人民挖地道主要是为了（　　）。",["A.玩耍","B.抗击敌人","C.储存玩具","D.旅游"],"B"],
+["fill","地道战充分表现了人民的________和________。","智慧；勇敢"],
+["choice","地道中的机关主要用于（　　）。",["A.装饰","B.防御敌人","C.休息","D.玩耍"],"B"],
+["choice","地道战的特点不包括（　　）。",["A.隐蔽","B.防御性强","C.便于抗战","D.只能睡觉"],"D"],
+["fill","冀中人民利用地道开展________斗争。","抗日"],
+["choice","本文主要赞美了（　　）。",["A.人民群众的智慧","B.敌人的强大","C.地道的漂亮","D.战争本身"],"A"],
+["choice","地道战能够坚持下来，重要原因是（　　）。",["A.人民团结","B.敌人帮助","C.没人参加","D.没有危险"],"A"],
+["fill","地道战体现了人民群众________抗敌的精神。","机智"],
+["choice","我们应该学习的精神是（　　）。",["A.勇敢、智慧、团结","B.自私","C.逃避","D.胆小"],"A"]
 ]},
-
-/* ================= 第三单元 ================= */
 
 8:{
-title:"猎人海力布",
-unit:"第三单元",
+name:"猎人海力布",unit:"第三单元",
 questions:[
-
-{
-type:"choice",
-q:"1. 海力布是一个怎样的人？",
-options:[
-"A. 贪心自私",
-"B. 善良勇敢、乐于助人",
-"C. 懒惰",
-"D. 胆小"
-],
-answer:"B"
-},
-
-{
-type:"choice",
-q:"2. 海力布得到了一块什么宝石？",
-options:["A. 蓝宝石","B. 白宝石","C. 能听懂动物语言的宝石","D. 红宝石"],
-answer:"C"
-},
-
-{
-type:"fill",
-q:"3. 海力布因为救了________，得到了一块宝石。",
-answer:"小白蛇"
-},
-
-{
-type:"choice",
-q:"4. 海力布为什么变成了石头？",
-options:[
-"A. 被妖怪施法",
-"B. 为了救乡亲们，说出了动物告诉他的秘密",
-"C. 他自己想变成石头",
-"D. 因为贪心"
-],
-answer:"B"
-},
-
-{
-type:"choice",
-q:"5. 海力布把秘密告诉乡亲们以后，自己变成了（　　）。",
-options:["A. 一棵树","B. 一块石头","C. 一只鸟","D. 一座山"],
-answer:"B"
-},
-
-{
-type:"fill",
-q:"6. 海力布用自己的生命换来了乡亲们的________。",
-answer:"安全"
-},
-
-{
-type:"choice",
-q:"7. 这篇民间故事主要赞美了海力布（　　）的高尚品质。",
-options:[
-"A. 贪财",
-"B. 舍己救人",
-"C. 骄傲",
-"D. 自私"
-],
-answer:"B"
-},
-
-{
-type:"choice",
-q:"8. 乡亲们后来明白了海力布为什么催促大家搬家吗？",
-options:["A. 明白了","B. 一直不明白","C. 不关心","D. 不知道"],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"9. 《猎人海力布》是一篇富有传奇色彩的________故事。",
-answer:"民间"
-},
-
-{
-type:"choice",
-q:"10. 这个故事告诉我们（　　）。",
-options:[
-"A. 应该珍惜生命，不帮助别人",
-"B. 人要有责任感，关键时刻可以舍己为人",
-"C. 不要相信别人",
-"D. 动物不能交流"
-],
-answer:"B"
-}
-
+["choice","海力布是一个怎样的人？",["A.善良勇敢","B.贪心","C.懒惰","D.自私"],"A"],
+["choice","海力布得到了一块怎样的宝石？",["A.能听懂动物语言","B.能变钱","C.能隐身","D.能飞"],"A"],
+["fill","海力布因为救了________，得到宝石。","小白蛇"],
+["choice","海力布为什么变成石头？",["A.为了救乡亲们而说出秘密","B.自己想变","C.被妖怪打败","D.贪财"],"A"],
+["fill","海力布用自己的生命换来了乡亲们的________。","安全"],
+["choice","本文赞美海力布（　　）的品质。",["A.舍己救人","B.贪财","C.骄傲","D.懒惰"],"A"],
+["choice","乡亲们后来知道海力布为什么让大家搬家吗？",["A.知道","B.不知道","C.不关心","D.不相信"],"A"],
+["fill","《猎人海力布》是一篇富有传奇色彩的________故事。","民间"],
+["choice","海力布最可贵的品质是（　　）。",["A.无私奉献","B.爱财","C.胆小","D.虚荣"],"A"],
+["choice","故事告诉我们（　　）。",["A.关键时刻要有责任担当","B.不要帮助别人","C.只顾自己","D.不要相信动物"],"A"]
 ]},
-
-/* ================= 牛郎织女一 ================= */
 
 9:{
-title:"牛郎织女（一）",
-unit:"第三单元",
+name:"牛郎织女（一）",unit:"第三单元",
 questions:[
-
-{
-type:"choice",
-q:"1. 牛郎小时候和谁相依为命？",
-options:["A. 父亲","B. 哥哥","C. 老牛","D. 王母娘娘"],
-answer:"C"
-},
-
-{
-type:"choice",
-q:"2. 牛郎的哥哥和嫂子对他怎样？",
-options:["A. 很好","B. 冷漠","C. 特别疼爱","D. 不认识"],
-answer:"B"
-},
-
-{
-type:"fill",
-q:"3. 牛郎和老牛相依为命，老牛成为牛郎最亲密的________。",
-answer:"伙伴"
-},
-
-{
-type:"choice",
-q:"4. 牛郎在老牛的帮助下遇到了谁？",
-options:["A. 嫦娥","B. 织女","C. 王母娘娘","D. 西王母"],
-answer:"B"
-},
-
-{
-type:"choice",
-q:"5. 织女为什么来到人间？",
-options:[
-"A. 和姐妹们一起到湖里洗澡",
-"B. 为了寻找牛郎",
-"C. 为了种田",
-"D. 为了逃跑"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"6. 牛郎和织女在________的帮助下认识。",
-answer:"老牛"
-},
-
-{
-type:"choice",
-q:"7. 牛郎身上最突出的品质是（　　）。",
-options:["A. 勤劳善良","B. 懒惰","C. 自私","D. 骄傲"],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"8. 织女为什么愿意和牛郎生活在一起？",
-options:[
-"A. 因为牛郎很有钱",
-"B. 因为牛郎勤劳善良",
-"C. 因为牛郎是神仙",
-"D. 因为王母娘娘安排"
-],
-answer:"B"
-},
-
-{
-type:"fill",
-q:"9. 牛郎织女的故事表达了人们对________的向往。",
-answer:"美好爱情和幸福生活"
-},
-
-{
-type:"choice",
-q:"10. 本文属于（　　）。",
-options:["A. 民间故事","B. 科学说明文","C. 新闻","D. 寓言"],
-answer:"A"
-}
-
+["choice","牛郎小时候和谁相依为命？",["A.老牛","B.哥哥","C.织女","D.王母"],"A"],
+["choice","哥哥和嫂子对牛郎怎样？",["A.冷漠","B.疼爱","C.帮助","D.尊敬"],"A"],
+["fill","牛郎和老牛成为最亲密的________。","伙伴"],
+["choice","牛郎在老牛帮助下遇到了（　　）。",["A.织女","B.嫦娥","C.王母","D.仙女王"],"A"],
+["choice","织女来到人间是因为（　　）。",["A.和姐妹们下凡洗澡","B.寻找牛郎","C.种田","D.逃难"],"A"],
+["fill","牛郎身上最突出的品质是________善良。","勤劳"],
+["choice","织女愿意和牛郎生活，是因为牛郎（　　）。",["A.勤劳善良","B.非常有钱","C.是神仙","D.很有名"],"A"],
+["choice","本文属于（　　）。",["A.民间故事","B.说明文","C.新闻","D.寓言"],"A"],
+["fill","牛郎织女故事表达了人们对幸福生活和美好________的向往。","爱情"],
+["choice","本文主要表现了（　　）。",["A.善良勤劳的品质","B.财富","C.战争","D.权力"],"A"]
 ]},
-
-/* ================= 牛郎织女二 ================= */
 
 10:{
-title:"牛郎织女（二）",
-unit:"第三单元",
+name:"牛郎织女（二）",unit:"第三单元",
 questions:[
-
-{
-type:"choice",
-q:"1. 王母娘娘为什么反对牛郎和织女在一起？",
-options:[
-"A. 认为牛郎太穷",
-"B. 认为织女应该留在天上",
-"C. 牛郎不会种田",
-"D. 她不认识牛郎"
-],
-answer:"B"
-},
-
-{
-type:"choice",
-q:"2. 王母娘娘用什么把牛郎和织女分开？",
-options:["A. 金钗","B. 玉簪","C. 宝剑","D. 扇子"],
-answer:"B"
-},
-
-{
-type:"fill",
-q:"3. 王母娘娘用玉簪划出了一道天河，也就是今天所说的________。",
-answer:"银河"
-},
-
-{
-type:"choice",
-q:"4. 牛郎和织女一年只能在什么时候相会？",
-options:["A. 七月初七","B. 八月十五","C. 九月初九","D. 正月十五"],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"5. 帮助牛郎织女相会的是（　　）。",
-options:["A. 喜鹊","B. 乌鸦","C. 燕子","D. 大雁"],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"6. 每年七月初七，成群的________飞来搭桥。",
-answer:"喜鹊"
-},
-
-{
-type:"choice",
-q:"7. 这个故事表达了人们对什么的追求？",
-options:[
-"A. 财富",
-"B. 自由、幸福和美好爱情",
-"C. 权力",
-"D. 战争"
-],
-answer:"B"
-},
-
-{
-type:"choice",
-q:"8. 王母娘娘是一个怎样的人物？",
-options:[
-"A. 善良慈祥",
-"B. 冷酷无情",
-"C. 勤劳勇敢",
-"D. 乐于助人"
-],
-answer:"B"
-},
-
-{
-type:"fill",
-q:"9. 牛郎织女的故事后来形成了中国传统节日________的美丽传说。",
-answer:"七夕"
-},
-
-{
-type:"choice",
-q:"10. 《牛郎织女（二）》主要表现了（　　）。",
-options:[
-"A. 对美好爱情的向往",
-"B. 对战争的赞美",
-"C. 对财富的追求",
-"D. 对王母的赞美"
-],
-answer:"A"
-}
-
+["choice","王母娘娘为什么反对牛郎织女？",["A.织女应该留在天上","B.牛郎没钱","C.牛郎不会种田","D.不认识牛郎"],"A"],
+["choice","王母娘娘用什么分开牛郎和织女？",["A.玉簪","B.宝剑","C.金钗","D.扇子"],"A"],
+["fill","王母娘娘划出的天河就是今天所说的________。","银河"],
+["choice","牛郎织女一年只能在什么时候相会？",["A.七月初七","B.八月十五","C.九月九日","D.正月十五"],"A"],
+["fill","每年七月初七，成群的________飞来搭桥。","喜鹊"],
+["choice","王母娘娘是一个怎样的人？",["A.冷酷无情","B.善良慈祥","C.乐于助人","D.勤劳善良"],"A"],
+["choice","故事表达了人们对什么的追求？",["A.幸福和美好爱情","B.财富","C.权力","D.战争"],"A"],
+["fill","牛郎织女的故事形成了中国传统节日________的传说。","七夕"],
+["choice","喜鹊搭桥体现了（　　）。",["A.人们对美好爱情的祝愿","B.战争","C.财富","D.权力"],"A"],
+["choice","本文主要表现了（　　）。",["A.对美好爱情的向往","B.对王母的赞美","C.对财富的追求","D.对战争的赞美"],"A"]
 ]},
-
-/* ================= 第四单元 ================= */
 
 11:{
-title:"古诗三首",
-unit:"第四单元",
+name:"古诗三首",unit:"第四单元",
 questions:[
-
-{
-type:"fill",
-q:"1. 《示儿》的作者是________。",
-answer:"陆游"
-},
-
-{
-type:"choice",
-q:"2. 《示儿》中“死去元知万事空”的下一句是（　　）。",
-options:[
-"A. 家祭无忘告乃翁",
-"B. 但悲不见九州同",
-"C. 王师北定中原日",
-"D. 直把杭州作汴州"
-],
-answer:"B"
-},
-
-{
-type:"fill",
-q:"3. 《示儿》中表达诗人临终前仍盼望祖国统一的诗句是：“王师北定________，家祭无忘告乃翁。”",
-answer:"中原日"
-},
-
-{
-type:"choice",
-q:"4. 《题临安邸》中“山外青山楼外楼”的下一句是（　　）。",
-options:[
-"A. 西湖歌舞几时休",
-"B. 暖风熏得游人醉",
-"C. 直把杭州作汴州",
-"D. 家祭无忘告乃翁"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"5. 《题临安邸》表达了诗人对南宋统治者________的强烈不满。",
-answer:"苟且偷安"
-},
-
-{
-type:"choice",
-q:"6. 《己亥杂诗》的作者是（　　）。",
-options:["A. 龚自珍","B. 陆游","C. 林升","D. 王安石"],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"7. “我劝天公重抖擞，________。”",
-answer:"不拘一格降人才"
-},
-
-{
-type:"choice",
-q:"8. “不拘一格降人才”表达了诗人怎样的愿望？",
-options:[
-"A. 希望国家能够广泛选拔人才",
-"B. 希望自己当皇帝",
-"C. 希望战争继续",
-"D. 希望大家不读书"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"9. 三首古诗共同表达了诗人怎样的情感？",
-options:[
-"A. 对国家命运的关心",
-"B. 对美食的喜爱",
-"C. 对游玩的向往",
-"D. 对财富的追求"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"10. 《示儿》表达了诗人至死不忘________的爱国情怀。",
-answer:"祖国统一"
-}
-
+["fill","《示儿》的作者是________。","陆游"],
+["choice","“死去元知万事空”的下一句是（　　）。",["A.但悲不见九州同","B.家祭无忘告乃翁","C.王师北定中原日","D.西湖歌舞几时休"],"A"],
+["fill","王师北定________，家祭无忘告乃翁。","中原日"],
+["choice","《题临安邸》的作者是（　　）。",["A.林升","B.陆游","C.龚自珍","D.王维"],"A"],
+["fill","山外青山楼外楼，________。","西湖歌舞几时休"],
+["choice","《题临安邸》讽刺的是（　　）。",["A.统治者苟且偷安","B.人民勤劳","C.自然风光","D.战争胜利"],"A"],
+["fill","《己亥杂诗》的作者是________。","龚自珍"],
+["fill","我劝天公重抖擞，________。","不拘一格降人才"],
+["choice","“不拘一格降人才”表达了（　　）。",["A.希望广泛选拔人才","B.希望战争","C.希望财富","D.希望游玩"],"A"],
+["choice","三首古诗共同体现了诗人的（　　）。",["A.爱国情怀","B.思乡游玩","C.财富追求","D.战争喜爱"],"A"]
 ]},
-
-/* ================= 少年中国说 ================= */
 
 12:{
-title:"少年中国说（节选）",
-unit:"第四单元",
+name:"少年中国说（节选）",unit:"第四单元",
 questions:[
-
-{
-type:"choice",
-q:"1. 《少年中国说》的作者是（　　）。",
-options:["A. 梁启超","B. 鲁迅","C. 李白","D. 巴金"],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"2. 少年智则国________。",
-answer:"智"
-},
-
-{
-type:"fill",
-q:"3. 少年强则国________。",
-answer:"强"
-},
-
-{
-type:"choice",
-q:"4. “红日初升，其道大光”象征着（　　）。",
-options:[
-"A. 少年中国充满希望",
-"B. 天气很好",
-"C. 太阳很热",
-"D. 夜晚到来"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"5. 作者为什么赞美少年中国？",
-options:[
-"A. 因为少年代表国家的未来",
-"B. 因为少年有钱",
-"C. 因为少年喜欢玩",
-"D. 因为少年身体高"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"6. “少年独立则国独立，少年自由则国________。”",
-answer:"自由"
-},
-
-{
-type:"choice",
-q:"7. 本文表达了作者怎样的思想感情？",
-options:[
-"A. 对少年中国的热切期望和强烈爱国情感",
-"B. 对战争的恐惧",
-"C. 对金钱的追求",
-"D. 对自然景物的喜爱"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"8. 下列句子最能表现少年与国家关系的是（　　）。",
-options:[
-"A. 少年智则国智",
-"B. 红日初升",
-"C. 河出伏流",
-"D. 潜龙腾渊"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"9. “美哉，我少年中国，与天不老！壮哉，我中国少年，________！”",
-answer:"与国无疆"
-},
-
-{
-type:"choice",
-q:"10. 这篇文章鼓励少年（　　）。",
-options:[
-"A. 奋发进取，承担建设国家的责任",
-"B. 安于现状",
-"C. 不学习",
-"D. 只顾自己"
-],
-answer:"A"
-}
-
+["choice","《少年中国说》的作者是（　　）。",["A.梁启超","B.鲁迅","C.冰心","D.巴金"],"A"],
+["fill","少年智则国________。","智"],
+["fill","少年强则国________。","强"],
+["choice","“红日初升，其道大光”象征（　　）。",["A.少年中国充满希望","B.天气炎热","C.夜晚","D.战争"],"A"],
+["fill","少年独立则国独立，少年自由则国________。","自由"],
+["choice","作者赞美少年中国，是因为少年代表着（　　）。",["A.国家的未来","B.财富","C.战争","D.过去"],"A"],
+["fill","美哉，我少年中国，与天不老！壮哉，我中国少年，________！","与国无疆"],
+["choice","文章表达了作者怎样的感情？",["A.强烈的爱国情感","B.悲伤","C.恐惧","D.厌恶"],"A"],
+["choice","文章希望少年（　　）。",["A.奋发进取","B.安于现状","C.不学习","D.只顾自己"],"A"],
+["choice","少年与国家的关系可以概括为（　　）。",["A.少年强则国强","B.少年与国家无关","C.少年不重要","D.国家不需要少年"],"A"]
 ]},
-
-/* ================= 圆明园 ================= */
 
 13:{
-title:"圆明园的毁灭",
-unit:"第四单元",
+name:"圆明园的毁灭",unit:"第四单元",
 questions:[
-
-{
-type:"choice",
-q:"1. 圆明园由圆明园、绮春园和什么组成？",
-options:["A. 长春园","B. 颐和园","C. 北海公园","D. 恭王府"],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"2. 圆明园的毁灭发生在（　　）。",
-options:[
-"A. 第一次鸦片战争",
-"B. 第二次鸦片战争",
-"C. 抗日战争",
-"D. 解放战争"
-],
-answer:"B"
-},
-
-{
-type:"fill",
-q:"3. 1860年，________联军侵入北京，毁灭了圆明园。",
-answer:"英法"
-},
-
-{
-type:"choice",
-q:"4. 圆明园为什么被誉为“万园之园”？",
-options:[
-"A. 园中汇集了大量园林艺术珍品和历史文物",
-"B. 园子特别小",
-"C. 园中只有一种景色",
-"D. 园中没有文物"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"5. 英法联军对圆明园进行了怎样的破坏？",
-options:[
-"A. 修复",
-"B. 抢掠、焚烧",
-"C. 保护",
-"D. 扩建"
-],
-answer:"B"
-},
-
-{
-type:"fill",
-q:"6. 圆明园的毁灭是中国近代史上的一次________。",
-answer:"巨大损失"
-},
-
-{
-type:"choice",
-q:"7. 课文用较多篇幅写圆明园昔日的辉煌，是为了（　　）。",
-options:[
-"A. 突出毁灭造成的巨大损失",
-"B. 介绍旅游景点",
-"C. 表扬侵略者",
-"D. 介绍建筑方法"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"8. 本文表达了作者怎样的感情？",
-options:[
-"A. 对祖国灿烂文化的赞美和对侵略者的憎恨",
-"B. 对侵略者的赞美",
-"C. 对圆明园没有感情",
-"D. 对旅游的喜爱"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"9. 圆明园中收藏着大量珍贵的________、名人书画等。",
-answer:"历史文物"
-},
-
-{
-type:"choice",
-q:"10. 学习本文后，我们应该（　　）。",
-options:[
-"A. 铭记历史，珍惜和平，努力学习",
-"B. 忘记历史",
-"C. 赞美侵略",
-"D. 不关心国家"
-],
-answer:"A"
-}
-
+["choice","圆明园由圆明园、绮春园和（　　）组成。",["A.长春园","B.颐和园","C.北海","D.恭王府"],"A"],
+["choice","圆明园的毁灭发生在（　　）。",["A.第二次鸦片战争","B.抗日战争","C.解放战争","D.第一次鸦片战争"],"A"],
+["fill","1860年，________联军侵入北京，毁灭圆明园。","英法"],
+["choice","圆明园被誉为“万园之园”，主要因为（　　）。",["A.园林艺术和历史文物丰富","B.面积小","C.没有文物","D.建筑简单"],"A"],
+["choice","侵略者对圆明园进行了（　　）。",["A.抢掠和焚烧","B.保护","C.修复","D.扩建"],"A"],
+["fill","圆明园的毁灭是中国近代史上的巨大________。","损失"],
+["choice","课文重点写圆明园昔日辉煌，是为了（　　）。",["A.突出毁灭的惨痛","B.介绍旅游","C.赞美侵略者","D.介绍建筑"],"A"],
+["choice","本文表达了（　　）。",["A.赞美祖国文化、痛恨侵略者","B.赞美侵略者","C.对圆明园无感情","D.对旅游的喜爱"],"A"],
+["fill","圆明园收藏了大量珍贵的________文物。","历史"],
+["choice","学习本文后我们应该（　　）。",["A.铭记历史、珍惜和平","B.忘记历史","C.赞美侵略","D.不关心国家"],"A"]
 ]},
-
-/* ================= 梅兰芳 ================= */
 
 14:{
-title:"梅兰芳蓄须",
-unit:"第四单元",
+name:"梅兰芳蓄须",unit:"第四单元",
 questions:[
-
-{
-type:"choice",
-q:"1. 梅兰芳是著名的（　　）。",
-options:["A. 京剧表演艺术家","B. 画家","C. 作家","D. 科学家"],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"2. 梅兰芳蓄须的主要原因是（　　）。",
-options:[
-"A. 喜欢留胡子",
-"B. 拒绝为侵略者演出",
-"C. 年龄太大",
-"D. 不喜欢京剧"
-],
-answer:"B"
-},
-
-{
-type:"fill",
-q:"3. 梅兰芳蓄须是为了表示自己________为日本侵略者演出。",
-answer:"不愿意"
-},
-
-{
-type:"choice",
-q:"4. 梅兰芳用什么办法拒绝登台？",
-options:[
-"A. 蓄须、装病等",
-"B. 离开中国",
-"C. 改演电影",
-"D. 不再学习"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"5. 梅兰芳宁愿承受生活困难，也不为侵略者演出，表现了他的（　　）。",
-options:[
-"A. 爱国情怀和民族气节",
-"B. 贪财",
-"C. 胆小",
-"D. 自私"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"6. 梅兰芳用自己的实际行动表现了中国人的________。",
-answer:"民族气节"
-},
-
-{
-type:"choice",
-q:"7. 日本人为什么想让梅兰芳登台演出？",
-options:[
-"A. 因为他艺术水平高，可以利用他的影响力",
-"B. 因为他会做饭",
-"C. 因为他是商人",
-"D. 因为他喜欢日本"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"8. 本文主要赞美梅兰芳的（　　）。",
-options:[
-"A. 爱国精神",
-"B. 财富",
-"C. 外貌",
-"D. 唱歌声音"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"9. 梅兰芳蓄须的故事让我们认识到，艺术家也可以用行动维护国家的________。",
-answer:"尊严"
-},
-
-{
-type:"choice",
-q:"10. 学习梅兰芳，我们应该（　　）。",
-options:[
-"A. 热爱祖国，有民族气节",
-"B. 只看重金钱",
-"C. 遇到困难就放弃",
-"D. 不承担责任"
-],
-answer:"A"
-}
-
+["choice","梅兰芳是著名的（　　）。",["A.京剧表演艺术家","B.画家","C.科学家","D.作家"],"A"],
+["choice","梅兰芳蓄须的主要原因是（　　）。",["A.拒绝为侵略者演出","B.喜欢留胡子","C.年龄大","D.不喜欢京剧"],"A"],
+["fill","梅兰芳用蓄须表示自己________为侵略者演出。","不愿意"],
+["choice","梅兰芳还通过什么办法拒绝演出？",["A.装病","B.主动演出","C.去帮助敌人","D.放弃信念"],"A"],
+["choice","梅兰芳表现出的最重要品质是（　　）。",["A.民族气节","B.贪财","C.胆小","D.骄傲"],"A"],
+["fill","梅兰芳用实际行动维护了中国人的________。","民族尊严"],
+["choice","日本人想让梅兰芳演出，主要因为（　　）。",["A.他的艺术影响力很大","B.他会做饭","C.他很有钱","D.他是军人"],"A"],
+["choice","本文主要赞美梅兰芳的（　　）。",["A.爱国精神","B.财富","C.外貌","D.唱歌声音"],"A"],
+["fill","梅兰芳蓄须的故事体现了艺术家的________气节。","民族"],
+["choice","我们应该学习梅兰芳（　　）。",["A.热爱祖国、有民族气节","B.只看金钱","C.逃避责任","D.安于现状"],"A"]
 ]},
-
-/* ================= 第五单元 ================= */
 
 15:{
-title:"太阳",
-unit:"第五单元",
+name:"太阳",unit:"第五单元",
 questions:[
-
-{
-type:"choice",
-q:"1. 《太阳》是一篇（　　）。",
-options:["A. 说明文","B. 童话","C. 寓言","D. 古诗"],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"2. 太阳离我们有多远？",
-options:[
-"A. 约1.5亿千米",
-"B. 约1500千米",
-"C. 约15万千米",
-"D. 约15亿千米"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"3. 太阳虽然离我们很远很远，但是它和我们的关系非常________。",
-answer:"密切"
-},
-
-{
-type:"choice",
-q:"4. 课文用“130万个地球才能抵得上一个太阳”说明太阳的什么特点？",
-options:["A. 大","B. 小","C. 冷","D. 黑"],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"5. 太阳的温度很高，表面温度约有（　　）。",
-options:["A. 1500℃","B. 5500℃","C. 550℃","D. 55℃"],
-answer:"B"
-},
-
-{
-type:"fill",
-q:"6. 太阳是一个巨大的________球。",
-answer:"气体"
-},
-
-{
-type:"choice",
-q:"7. 下列哪一项不是太阳和人类关系密切的表现？",
-options:[
-"A. 太阳光能形成雨雪",
-"B. 太阳光和热是地球生命的重要条件",
-"C. 太阳能帮助植物生长",
-"D. 太阳可以直接让人长高"
-],
-answer:"D"
-},
-
-{
-type:"choice",
-q:"8. “太阳会发光，会发热，是个大火球。”这句话使用了什么说明方法？",
-options:["A. 打比方","B. 列数字","C. 举例子","D. 作比较"],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"9. 太阳和地球的关系非常________。",
-answer:"密切"
-},
-
-{
-type:"choice",
-q:"10. 这篇课文主要介绍了太阳的特点以及太阳与人类的（　　）。",
-options:["A. 密切关系","B. 战争","C. 游戏","D. 历史"],
-answer:"A"
-}
-
+["choice","《太阳》是一篇（　　）。",["A.说明文","B.童话","C.寓言","D.古诗"],"A"],
+["choice","太阳离我们大约有（　　）千米。",["A.1.5亿","B.1500","C.15万","D.15亿"],"A"],
+["fill","太阳虽然离我们很远，但是和我们的关系非常________。","密切"],
+["choice","130万个地球才能抵得上一个太阳说明太阳（　　）。",["A.大","B.小","C.冷","D.暗"],"A"],
+["choice","太阳表面温度约有（　　）。",["A.5500℃","B.550℃","C.55℃","D.150℃"],"A"],
+["fill","太阳是一个巨大的________球。","气体"],
+["choice","“太阳会发光，会发热，是个大火球”用了（　　）。",["A.打比方","B.列数字","C.分类别","D.作诠释"],"A"],
+["choice","太阳和人类的关系（　　）。",["A.非常密切","B.没有关系","C.很小","D.只有夏天有关系"],"A"],
+["fill","太阳光和热是地球生命的重要________。","条件"],
+["choice","本文主要介绍太阳的特点以及它和人类的（　　）。",["A.密切关系","B.战争","C.游戏","D.历史"],"A"]
 ]},
-
-/* ================= 松鼠 ================= */
 
 16:{
-title:"松鼠",
-unit:"第五单元",
+name:"松鼠",unit:"第五单元",
 questions:[
-
-{
-type:"choice",
-q:"1. 《松鼠》主要介绍了松鼠的哪些特点？",
-options:[
-"A. 漂亮、乖巧、驯良",
-"B. 凶猛、危险",
-"C. 懒惰、贪吃",
-"D. 高大、威猛"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"2. 松鼠一般生活在（　　）。",
-options:["A. 高大的老树上","B. 沙漠","C. 海底","D. 城市街道"],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"3. 松鼠面容________，眼睛闪闪发光。",
-answer:"清秀"
-},
-
-{
-type:"choice",
-q:"4. 松鼠喜欢吃什么？",
-options:[
-"A. 松子、榛子等",
-"B. 大鱼",
-"C. 牛肉",
-"D. 蚯蚓"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"5. 松鼠搭窝的特点是（　　）。",
-options:[
-"A. 简单粗糙",
-"B. 十分讲究",
-"C. 不搭窝",
-"D. 只住水里"
-],
-answer:"B"
-},
-
-{
-type:"fill",
-q:"6. 松鼠是一种漂亮、________、驯良的小动物。",
-answer:"乖巧"
-},
-
-{
-type:"choice",
-q:"7. 本文主要采用了什么表达方式？",
-options:[
-"A. 说明",
-"B. 讲神话",
-"C. 写诗",
-"D. 写戏剧"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"8. “它们常常直竖着身子坐着，像人们用手一样，用前爪往嘴里送东西吃。”这里使用了（　　）。",
-options:["A. 打比方","B. 列数字","C. 作比较","D. 分类别"],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"9. 课文通过介绍松鼠的外形、________、搭窝等方面来说明它的特点。",
-answer:"活动"
-},
-
-{
-type:"choice",
-q:"10. 《松鼠》给人的总体感受是（　　）。",
-options:[
-"A. 松鼠可爱有趣",
-"B. 松鼠很可怕",
-"C. 松鼠很凶猛",
-"D. 松鼠没有特点"
-],
-answer:"A"
-}
-
+["choice","《松鼠》主要介绍松鼠（　　）的特点。",["A.漂亮、乖巧、驯良","B.凶猛","C.懒惰","D.高大"],"A"],
+["choice","松鼠喜欢生活在（　　）。",["A.高大的老树上","B.海底","C.沙漠","D.街道"],"A"],
+["fill","松鼠面容________，眼睛闪闪发光。","清秀"],
+["choice","松鼠喜欢吃（　　）。",["A.松子、榛子等","B.大鱼","C.牛肉","D.青草"],"A"],
+["choice","松鼠搭窝非常（　　）。",["A.讲究","B.随便","C.粗糙","D.简单"],"A"],
+["fill","松鼠是一种漂亮、________、驯良的小动物。","乖巧"],
+["choice","“像人们用手一样”运用了（　　）。",["A.打比方","B.列数字","C.分类别","D.作诠释"],"A"],
+["fill","课文从外形、________、搭窝等方面介绍松鼠。","活动"],
+["choice","本文属于（　　）。",["A.科学性说明文","B.童话","C.寓言","D.诗歌"],"A"],
+["choice","读完课文，我们对松鼠的总体感受是（　　）。",["A.可爱有趣","B.可怕","C.凶猛","D.没有特点"],"A"]
 ]},
-
-/* ================= 第六单元 ================= */
 
 17:{
-title:"慈母情深",
-unit:"第六单元",
+name:"慈母情深",unit:"第六单元",
 questions:[
-
-{
-type:"choice",
-q:"1. 《慈母情深》主要写了什么？",
-options:[
-"A. 母亲给“我”钱买书",
-"B. 母亲带“我”旅游",
-"C. 母亲教“我”做饭",
-"D. 母亲给“我”买衣服"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"2. “我”想买的书是（　　）。",
-options:["A. 《青年近卫军》","B. 《西游记》","C. 《红楼梦》","D. 《三国演义》"],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"3. 母亲在________里工作。",
-answer:"工厂"
-},
-
-{
-type:"choice",
-q:"4. 母亲的工作环境给“我”的感受是（　　）。",
-options:[
-"A. 明亮舒适",
-"B. 嘈杂、拥挤、辛苦",
-"C. 安静优美",
-"D. 豪华"
-],
-answer:"B"
-},
-
-{
-type:"choice",
-q:"5. 母亲毫不犹豫地给“我”钱买书，体现了（　　）。",
-options:[
-"A. 母亲对孩子深沉的爱",
-"B. 母亲很有钱",
-"C. 母亲不喜欢钱",
-"D. 母亲不爱劳动"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"6. 课文通过母亲工作的________和给钱买书这件事表现母爱的深沉。",
-answer:"艰苦环境"
-},
-
-{
-type:"choice",
-q:"7. “慈母情深”中的“深”主要指（　　）。",
-options:[
-"A. 母爱的深厚",
-"B. 工厂很深",
-"C. 河水很深",
-"D. 时间很长"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"8. 作者对母亲的感情是（　　）。",
-options:[
-"A. 感激、敬爱",
-"B. 厌烦",
-"C. 冷漠",
-"D. 害怕"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"9. 这篇课文让我们感受到母爱的________与伟大。",
-answer:"深沉"
-},
-
-{
-type:"choice",
-q:"10. 学完本文，你最应该懂得（　　）。",
-options:[
-"A. 感恩父母",
-"B. 只顾自己",
-"C. 不珍惜亲情",
-"D. 不认真学习"
-],
-answer:"A"
-}
-
+["choice","《慈母情深》主要写母亲（　　）。",["A.给“我”钱买书","B.带“我”旅游","C.教“我”做饭","D.给“我”买玩具"],"A"],
+["choice","“我”想买的书是（　　）。",["A.《青年近卫军》","B.《西游记》","C.《红楼梦》","D.《三国演义》"],"A"],
+["fill","母亲在________里辛苦工作。","工厂"],
+["choice","母亲的工作环境给“我”的感受是（　　）。",["A.嘈杂拥挤、非常辛苦","B.明亮舒适","C.安静优美","D.豪华"],"A"],
+["choice","母亲给“我”钱买书体现了（　　）。",["A.深沉的母爱","B.母亲有很多钱","C.母亲不爱劳动","D.母亲不喜欢孩子"],"A"],
+["fill","课文通过母亲工作的________表现母爱的深沉。","艰苦环境"],
+["choice","“慈母情深”的“深”主要指（　　）。",["A.母爱的深厚","B.工厂很深","C.时间很长","D.河水很深"],"A"],
+["choice","作者对母亲充满（　　）。",["A.感激和敬爱","B.厌烦","C.冷漠","D.害怕"],"A"],
+["fill","这篇课文让我们感受到母爱的________与伟大。","深沉"],
+["choice","学习本文后我们应该（　　）。",["A.懂得感恩父母","B.忽视亲情","C.只顾自己","D.不认真学习"],"A"]
 ]},
-
-/* ================= 父爱之舟 ================= */
 
 18:{
-title:"父爱之舟",
-unit:"第六单元",
+name:"父爱之舟",unit:"第六单元",
 questions:[
-
-{
-type:"choice",
-q:"1. 《父爱之舟》的作者是（　　）。",
-options:["A. 吴冠中","B. 朱自清","C. 巴金","D. 老舍"],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"2. “父爱之舟”中的“舟”是全文重要的（　　）。",
-options:["A. 线索","B. 人物","C. 反派","D. 景物"],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"3. 文章通过许多生活小事表现了父亲对“我”深沉的________。",
-answer:"爱"
-},
-
-{
-type:"choice",
-q:"4. 父亲给“我”买什么让“我”感受到父爱？",
-options:[
-"A. 豆腐脑等食物",
-"B. 玩具汽车",
-"C. 电子游戏",
-"D. 手机"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"5. 父亲虽然生活贫困，却尽力满足“我”的愿望，这体现了（　　）。",
-options:[
-"A. 深沉的父爱",
-"B. 父亲很富有",
-"C. 父亲很懒惰",
-"D. 父亲不关心孩子"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"6. 文中的“父爱之舟”实际上是父爱的________。",
-answer:"象征"
-},
-
-{
-type:"choice",
-q:"7. 文章主要通过什么来表现父爱？",
-options:[
-"A. 一件件平凡的小事",
-"B. 大型战争",
-"C. 神话故事",
-"D. 科学实验"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"8. 作者回忆父亲时的心情主要是（　　）。",
-options:[
-"A. 感动、怀念",
-"B. 生气",
-"C. 厌烦",
-"D. 无所谓"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"9. 《父爱之舟》表现了作者对父亲深深的________之情。",
-answer:"感激和怀念"
-},
-
-{
-type:"choice",
-q:"10. 本文的中心是（　　）。",
-options:[
-"A. 赞美深沉伟大的父爱",
-"B. 介绍船的结构",
-"C. 介绍水乡风光",
-"D. 讲述旅行故事"
-],
-answer:"A"
-}
-
+["choice","《父爱之舟》的作者是（　　）。",["A.吴冠中","B.朱自清","C.巴金","D.老舍"],"A"],
+["choice","题目中的“舟”在文中是（　　）。",["A.线索和父爱的象征","B.反派","C.人物","D.敌人"],"A"],
+["fill","文章通过许多生活小事表现父亲深沉的________。","爱"],
+["choice","父亲虽然生活贫困，却（　　）。",["A.尽力满足孩子的愿望","B.不管孩子","C.只顾自己","D.拒绝帮助"],"A"],
+["choice","本文主要通过什么表现父爱？",["A.平凡的小事","B.战争","C.神话","D.科学实验"],"A"],
+["fill","“父爱之舟”是父爱的________。","象征"],
+["choice","作者回忆父亲时主要是（　　）的心情。",["A.感动和怀念","B.生气","C.厌烦","D.无所谓"],"A"],
+["choice","父亲给孩子的爱具有怎样的特点？",["A.深沉而无私","B.冷漠","C.自私","D.虚假"],"A"],
+["fill","本文表达了作者对父亲深深的感激和________。","怀念"],
+["choice","文章中心是（　　）。",["A.赞美伟大的父爱","B.介绍船","C.介绍水乡","D.旅行故事"],"A"]
 ]},
-
-/* ================= 精彩极了 ================= */
 
 19:{
-title:"“精彩极了”和“糟糕透了”",
-unit:"第六单元",
+name:"“精彩极了”和“糟糕透了”",unit:"第六单元",
 questions:[
-
-{
-type:"choice",
-q:"1. 巴迪写了一首什么？",
-options:["A. 诗","B. 小说","C. 新闻","D. 日记"],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"2. 巴迪的母亲对他的诗评价是（　　）。",
-options:["A. 精彩极了","B. 糟糕透了","C. 一般般","D. 不知道"],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"3. 父亲对巴迪的诗评价是（　　）。",
-options:["A. 精彩极了","B. 糟糕透了","C. 很优秀","D. 非常漂亮"],
-answer:"B"
-},
-
-{
-type:"fill",
-q:"4. 母亲的“精彩极了”代表的是________的爱。",
-answer:"鼓励"
-},
-
-{
-type:"fill",
-q:"5. 父亲的“糟糕透了”代表的是________的爱。",
-answer:"严格"
-},
-
-{
-type:"choice",
-q:"6. 巴迪后来为什么能够取得成功？",
-options:[
-"A. 既有母亲的鼓励，又有父亲的严格要求",
-"B. 只听母亲的话",
-"C. 只听父亲的话",
-"D. 从不接受批评"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"7. “精彩极了”和“糟糕透了”看似矛盾，实际上都包含着（　　）。",
-options:["A. 父母的爱","B. 生气","C. 厌烦","D. 嘲笑"],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"8. 巴迪长大以后明白了，父母的两种评价都是对自己的________。",
-answer:"爱"
-},
-
-{
-type:"choice",
-q:"9. 这篇课文告诉我们，面对表扬和批评应该（　　）。",
-options:[
-"A. 正确看待，取长补短",
-"B. 只听表扬",
-"C. 只听批评",
-"D. 谁的话都不听"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"10. 本文的中心思想是（　　）。",
-options:[
-"A. 父母不同方式的爱共同帮助孩子成长",
-"B. 父亲不爱孩子",
-"C. 母亲不应该表扬孩子",
-"D. 表扬没有作用"
-],
-answer:"A"
-}
-
+["choice","巴迪写了一首（　　）。",["A.诗","B.小说","C.新闻","D.日记"],"A"],
+["choice","母亲对巴迪的作品评价是（　　）。",["A.精彩极了","B.糟糕透了","C.一般","D.不知道"],"A"],
+["choice","父亲的评价是（　　）。",["A.糟糕透了","B.精彩极了","C.很优秀","D.很好看"],"A"],
+["fill","母亲的“精彩极了”代表________的爱。","鼓励"],
+["fill","父亲的“糟糕透了”代表________的爱。","严格"],
+["choice","巴迪后来能够成功，重要原因是（　　）。",["A.同时接受鼓励和严格要求","B.只听母亲","C.只听父亲","D.从不接受批评"],"A"],
+["choice","两种看似矛盾的评价都包含着（　　）。",["A.父母的爱","B.嘲笑","C.厌烦","D.生气"],"A"],
+["fill","巴迪长大后明白父母的评价都是对自己的________。","爱"],
+["choice","面对表扬和批评，我们应该（　　）。",["A.正确看待","B.只听表扬","C.只听批评","D.谁都不听"],"A"],
+["choice","本文告诉我们（　　）。",["A.不同方式的爱共同帮助孩子成长","B.父亲不爱孩子","C.母亲不应该表扬","D.批评没有意义"],"A"]
 ]},
-
-/* ================= 第七单元古诗 ================= */
 
 20:{
-title:"古诗三首",
-unit:"第七单元",
+name:"古诗三首",unit:"第七单元",
 questions:[
-
-{
-type:"fill",
-q:"1. 《山居秋暝》的作者是________。",
-answer:"王维"
-},
-
-{
-type:"choice",
-q:"2. “空山新雨后，天气晚来秋”的下一句是（　　）。",
-options:[
-"A. 明月松间照",
-"B. 随意春芳歇",
-"C. 清泉石上流",
-"D. 王孙自可留"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"3. “明月松间照，________。”",
-answer:"清泉石上流"
-},
-
-{
-type:"choice",
-q:"4. 《枫桥夜泊》的作者是（　　）。",
-options:["A. 张继","B. 王维","C. 纳兰性德","D. 李白"],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"5. “月落乌啼霜满天，________。”",
-answer:"江枫渔火对愁眠"
-},
-
-{
-type:"choice",
-q:"6. 《长相思》的作者是（　　）。",
-options:["A. 纳兰性德","B. 张继","C. 王维","D. 杜甫"],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"7. “风一更，雪一更，________，故园无此声。”",
-answer:"聒碎乡心梦不成"
-},
-
-{
-type:"choice",
-q:"8. 三首古诗词中都写到了什么？",
-options:[
-"A. 自然景色和诗人的情感",
-"B. 战争",
-"C. 城市生活",
-"D. 科学知识"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"9. 《枫桥夜泊》表达了诗人怎样的情感？",
-options:[
-"A. 羁旅愁绪",
-"B. 欢乐喜悦",
-"C. 战斗豪情",
-"D. 对食物的喜爱"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"10. 《长相思》主要表达了词人怎样的情感？",
-options:[
-"A. 思乡之情",
-"B. 对金钱的喜爱",
-"C. 对战争的赞美",
-"D. 对学校的怀念"
-],
-answer:"A"
-}
-
+["fill","《山居秋暝》的作者是________。","王维"],
+["fill","明月松间照，________。","清泉石上流"],
+["choice","《山居秋暝》描写的是（　　）的景色。",["A.秋天山中","B.春天田野","C.夏天海边","D.冬天城市"],"A"],
+["choice","《枫桥夜泊》的作者是（　　）。",["A.张继","B.王维","C.纳兰性德","D.杜甫"],"A"],
+["fill","月落乌啼霜满天，________。","江枫渔火对愁眠"],
+["choice","《枫桥夜泊》主要表达（　　）。",["A.羁旅愁绪","B.喜悦","C.战争豪情","D.财富追求"],"A"],
+["fill","《长相思》的作者是________。","纳兰性德"],
+["fill","风一更，雪一更，________，故园无此声。","聒碎乡心梦不成"],
+["choice","《长相思》主要表达（　　）。",["A.思乡之情","B.欢乐","C.战争","D.财富"],"A"],
+["choice","三首诗词共同表现了诗人对自然和生活的（　　）。",["A.感受与情感","B.金钱追求","C.战争兴趣","D.城市生活"],"A"]
 ]},
-
-/* ================= 第一场雪 ================= */
 
 21:{
-title:"第一场雪",
-unit:"第七单元",
+name:"第一场雪",unit:"第七单元",
 questions:[
-
-{
-type:"choice",
-q:"1. 《第一场雪》主要描写了（　　）。",
-options:[
-"A. 冬天下雪后的景象",
-"B. 春天的花朵",
-"C. 夏天的雨",
-"D. 秋天的落叶"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"2. 雪花从天空中纷纷扬扬地________下来。",
-answer:"飘落"
-},
-
-{
-type:"choice",
-q:"3. 雪后的大地给人的总体感受是（　　）。",
-options:["A. 洁白、美丽","B. 炎热","C. 黑暗","D. 嘈杂"],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"4. 课文描写雪景时主要运用了（　　）描写。",
-options:["A. 景物","B. 人物","C. 对话","D. 新闻"],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"5. 作者通过描写雪景表达了对________的喜爱。",
-answer:"冬雪"
-},
-
-{
-type:"choice",
-q:"6. 雪后的树木通常呈现怎样的景象？",
-options:[
-"A. 银装素裹",
-"B. 枝叶繁茂",
-"C. 一片火红",
-"D. 光秃秃没有雪"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"7. “银装素裹”中的“素”指的是（　　）。",
-options:["A. 白色","B. 红色","C. 黑色","D. 黄色"],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"8. 雪后的景物因为白雪覆盖而显得格外________。",
-answer:"洁白美丽"
-},
-
-{
-type:"choice",
-q:"9. 文章通过写雪景，表现了作者怎样的感情？",
-options:[
-"A. 喜爱自然、热爱生活",
-"B. 厌恶冬天",
-"C. 害怕下雪",
-"D. 对生活失望"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"10. 读写景文章时，可以重点关注（　　）。",
-options:[
-"A. 景物特点和作者的感情",
-"B. 人物年龄",
-"C. 数学公式",
-"D. 科学实验"
-],
-answer:"A"
-}
-
+["choice","《第一场雪》主要描写（　　）。",["A.冬天下雪后的景象","B.春花","C.夏雨","D.秋叶"],"A"],
+["fill","雪花从天空中纷纷扬扬地________下来。","飘落"],
+["choice","雪后的大地给人的感觉是（　　）。",["A.洁白美丽","B.炎热","C.黑暗","D.嘈杂"],"A"],
+["fill","雪后的树木呈现________的景象。","银装素裹"],
+["choice","“银装素裹”的“素”指（　　）。",["A.白色","B.红色","C.黑色","D.黄色"],"A"],
+["choice","文章主要采用（　　）描写。",["A.景物","B.人物","C.对话","D.新闻"],"A"],
+["fill","作者通过雪景表达了对________的喜爱。","冬雪"],
+["choice","雪覆盖大地后，景物显得更加（　　）。",["A.洁白","B.炎热","C.黑暗","D.杂乱"],"A"],
+["choice","写景文章阅读时要重点关注（　　）。",["A.景物特点和作者感情","B.数学公式","C.人物年龄","D.实验步骤"],"A"],
+["choice","本文表现了作者（　　）。",["A.热爱自然、热爱生活","B.厌恶冬天","C.害怕下雪","D.讨厌生活"],"A"]
 ]},
-
-/* ================= 白鹭 ================= */
 
 22:{
-title:"白鹭",
-unit:"第七单元",
+name:"白鹭",unit:"第七单元",
 questions:[
-
-{
-type:"choice",
-q:"1. 《白鹭》的作者是（　　）。",
-options:["A. 郭沫若","B. 老舍","C. 巴金","D. 冰心"],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"2. 作者认为白鹭是一首（　　）。",
-options:[
-"A. 精巧的诗",
-"B. 悲伤的歌",
-"C. 热闹的戏",
-"D. 有趣的故事"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"3. 白鹭是一首________的诗。",
-answer:"精巧"
-},
-
-{
-type:"choice",
-q:"4. 白鹭的颜色搭配给人的感觉是（　　）。",
-options:[
-"A. 素雅",
-"B. 鲜艳刺眼",
-"C. 黑暗",
-"D. 混乱"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"5. “增之一分则嫌长，减之一分则嫌短”说明白鹭的身材（　　）。",
-options:[
-"A. 恰到好处",
-"B. 非常高大",
-"C. 非常矮小",
-"D. 不协调"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"6. 白鹭的美是一种________的美。",
-answer:"自然"
-},
-
-{
-type:"choice",
-q:"7. 作者写白鹭时为什么多次用“诗”来比喻？",
-options:[
-"A. 突出白鹭优美、含蓄的特点",
-"B. 因为白鹭会写诗",
-"C. 因为白鹭会唱歌",
-"D. 因为诗很长"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"8. 白鹭“钓鱼”的画面表现了它怎样的特点？",
-options:[
-"A. 悠然自得",
-"B. 凶猛",
-"C. 急躁",
-"D. 懒惰"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"9. 《白鹭》表达了作者对白鹭的________之情。",
-answer:"喜爱和赞美"
-},
-
-{
-type:"choice",
-q:"10. 《白鹭》的语言特点是（　　）。",
-options:[
-"A. 优美、含蓄",
-"B. 枯燥、复杂",
-"C. 充满数字",
-"D. 全是对话"
-],
-answer:"A"
-}
-
+["choice","《白鹭》的作者是（　　）。",["A.郭沫若","B.老舍","C.巴金","D.冰心"],"A"],
+["fill","白鹭是一首________的诗。","精巧"],
+["choice","白鹭的颜色给人怎样的感觉？",["A.素雅","B.刺眼","C.黑暗","D.混乱"],"A"],
+["fill","增之一分则嫌长，减之一分则嫌________。","短"],
+["choice","这句话说明白鹭的身材（　　）。",["A.恰到好处","B.不协调","C.太高","D.太矮"],"A"],
+["choice","作者多次把白鹭比作“诗”，是为了突出它的（　　）。",["A.优美含蓄","B.凶猛","C.吵闹","D.巨大"],"A"],
+["choice","白鹭钓鱼的画面表现它怎样的特点？",["A.悠然自得","B.急躁","C.凶猛","D.懒惰"],"A"],
+["fill","白鹭的美是一种自然、________的美。","含蓄"],
+["choice","《白鹭》表达了作者对白鹭的（　　）。",["A.喜爱和赞美","B.厌恶","C.害怕","D.冷漠"],"A"],
+["choice","本文语言特点是（　　）。",["A.优美含蓄","B.枯燥复杂","C.全是数字","D.全是对话"],"A"]
 ]},
-
-/* ================= 第八单元 ================= */
 
 23:{
-title:"古人谈读书",
-unit:"第八单元",
+name:"古人谈读书",unit:"第八单元",
 questions:[
-
-{
-type:"choice",
-q:"1. 《古人谈读书》中“知之为知之，不知为不知，是知也”告诉我们（　　）。",
-options:[
-"A. 学习要实事求是",
-"B. 不需要学习",
-"C. 只要聪明就行",
-"D. 什么都应该假装知道"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"2. “知之为知之，不知为不知，是________也。”",
-answer:"知"
-},
-
-{
-type:"choice",
-q:"3. “敏而好学，不耻下问”告诉我们要（　　）。",
-options:[
-"A. 勤奋好学，虚心请教",
-"B. 不向别人学习",
-"C. 认为自己什么都会",
-"D. 不喜欢读书"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"4. “我非生而知之者，好古，敏以求之者也”说明孔子（　　）。",
-options:[
-"A. 通过学习获得知识",
-"B. 天生什么都会",
-"C. 不需要学习",
-"D. 不喜欢读书"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"5. 余尝谓读书有三到，谓心到、眼到、________。",
-answer:"口到"
-},
-
-{
-type:"choice",
-q:"6. 朱熹认为读书最重要的是（　　）。",
-options:[
-"A. 心到、眼到、口到",
-"B. 速度快",
-"C. 书越多越好",
-"D. 只看图片"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"7. 本课告诉我们读书学习应该（　　）。",
-options:[
-"A. 勤奋、虚心、专心",
-"B. 骄傲自满",
-"C. 浅尝辄止",
-"D. 不求甚解"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"8. “学而不厌，________。”",
-answer:"诲人不倦"
-},
-
-{
-type:"choice",
-q:"9. “三到”中的“心到”指的是（　　）。",
-options:[
-"A. 用心思考",
-"B. 心情开心",
-"C. 心跳很快",
-"D. 不需要看书"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"10. 《古人谈读书》告诉我们最重要的学习态度是（　　）。",
-options:[
-"A. 勤学、好问、专心",
-"B. 自满",
-"C. 偷懒",
-"D. 放弃"
-],
-answer:"A"
-}
-
+["choice","“知之为知之，不知为不知”告诉我们要（　　）。",["A.实事求是","B.假装知道","C.不学习","D.骄傲"],"A"],
+["fill","不知为不知，是________也。","知"],
+["choice","“敏而好学，不耻下问”告诉我们要（　　）。",["A.勤学好问","B.骄傲","C.懒惰","D.不请教"],"A"],
+["choice","“我非生而知之者”说明知识需要（　　）。",["A.学习获得","B.天生获得","C.别人赠送","D.不需要学习"],"A"],
+["fill","余尝谓读书有三到，谓心到、眼到、________。","口到"],
+["choice","朱熹认为读书要做到（　　）。",["A.心到、眼到、口到","B.只看书","C.只听别人","D.快速翻页"],"A"],
+["choice","“三到”中的“心到”指（　　）。",["A.专心思考","B.开心","C.心跳快","D.不看书"],"A"],
+["fill","学而不厌，________。","诲人不倦"],
+["choice","本文告诉我们读书应该（　　）。",["A.勤奋、虚心、专心","B.自满","C.偷懒","D.敷衍"],"A"],
+["choice","本文最重要的学习态度是（　　）。",["A.勤学好问","B.骄傲自满","C.逃避","D.放弃"],"A"]
 ]},
-
-/* ================= 忆读书 ================= */
 
 24:{
-title:"忆读书",
-unit:"第八单元",
+name:"忆读书",unit:"第八单元",
 questions:[
-
-{
-type:"choice",
-q:"1. 《忆读书》的作者是（　　）。",
-options:["A. 冰心","B. 琦君","C. 巴金","D. 郭沫若"],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"2. 冰心认为读书的好处是什么？",
-options:[
-"A. 读书能让人获得知识和快乐",
-"B. 读书只是为了考试",
-"C. 读书浪费时间",
-"D. 读书只能消磨时间"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"3. 冰心认为读书时要读________的书。",
-answer:"有用"
-},
-
-{
-type:"choice",
-q:"4. 冰心特别强调读书要（　　）。",
-options:[
-"A. 多读书、读好书",
-"B. 只看漫画",
-"C. 只读一本书",
-"D. 不做选择"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"5. “读书好，多读书，读好书”是本文的重要观点，说明（　　）。",
-options:[
-"A. 读书有益，要广泛阅读并选择好书",
-"B. 读书没有意义",
-"C. 只需要读课本",
-"D. 只看故事"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"6. 《忆读书》是一篇回忆自己________经历的文章。",
-answer:"读书"
-},
-
-{
-type:"choice",
-q:"7. 作者通过回忆自己的读书经历，告诉少年儿童应该（　　）。",
-options:[
-"A. 热爱读书",
-"B. 少读书",
-"C. 不读书",
-"D. 只看电视"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"8. 作者认为阅读名著时要关注（　　）。",
-options:[
-"A. 内容是否精彩、是否有益",
-"B. 书的颜色",
-"C. 书的价格",
-"D. 书的厚度"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"9. 本文告诉我们要养成________的好习惯。",
-answer:"读书"
-},
-
-{
-type:"choice",
-q:"10. “读书好，多读书，读好书”中最后一个“读好书”强调的是（　　）。",
-options:[
-"A. 选择优秀、有益的书阅读",
-"B. 书越贵越好",
-"C. 书越厚越好",
-"D. 书越新越好"
-],
-answer:"A"
-}
-
+["choice","《忆读书》的作者是（　　）。",["A.冰心","B.琦君","C.巴金","D.郭沫若"],"A"],
+["choice","冰心认为读书有什么好处？",["A.获得知识和快乐","B.只是考试","C.浪费时间","D.只能消磨时间"],"A"],
+["fill","读书好，________，读好书。","多读书"],
+["choice","“读好书”强调（　　）。",["A.选择优秀有益的书","B.书越贵越好","C.书越厚越好","D.书越新越好"],"A"],
+["choice","作者通过回忆自己的读书经历，告诉少年儿童应该（　　）。",["A.热爱读书","B.少读书","C.不读书","D.只看电视"],"A"],
+["fill","《忆读书》是一篇回忆自己________经历的文章。","读书"],
+["choice","阅读名著时应该关注（　　）。",["A.内容是否精彩有益","B.价格","C.颜色","D.厚度"],"A"],
+["choice","作者强调读书应该（　　）。",["A.多读书、读好书","B.只读一本","C.不选择书","D.只看漫画"],"A"],
+["fill","本文告诉我们要养成良好的________习惯。","读书"],
+["choice","“读书好，多读书，读好书”中“多读书”强调（　　）。",["A.广泛阅读","B.只读课本","C.只读漫画","D.不选择"],"A"]
 ]},
 
-/* ================= 走遍天下书为侣 ================= */
-
 25:{
-title:"走遍天下书为侣",
-unit:"第八单元",
+name:"走遍天下书为侣",unit:"第八单元",
 questions:[
-
-{
-type:"choice",
-q:"1. 作者为什么愿意把书作为自己的伙伴？",
-options:[
-"A. 因为书能带来知识和快乐",
-"B. 因为书很漂亮",
-"C. 因为书很贵",
-"D. 因为没有朋友"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"2. 如果只能带一样东西环游世界，作者会选择（　　）。",
-options:["A. 书","B. 钱","C. 玩具","D. 食物"],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"3. 作者把书比作自己的________。",
-answer:"朋友"
-},
-
-{
-type:"choice",
-q:"4. 作者为什么愿意一遍又一遍地读同一本书？",
-options:[
-"A. 每一次阅读都可以有新的发现",
-"B. 因为没有其他书",
-"C. 因为忘记内容",
-"D. 因为书很短"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"5. 读一本书时，作者建议我们应该（　　）。",
-options:[
-"A. 思考、品味、发现新的内容",
-"B. 只看一遍",
-"C. 只看标题",
-"D. 不做思考"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"6. 一本你喜爱的书就是一位________。",
-answer:"朋友"
-},
-
-{
-type:"choice",
-q:"7. 本文主要表达了作者怎样的感情？",
-options:[
-"A. 对读书的热爱",
-"B. 对旅行的厌恶",
-"C. 对学习的反感",
-"D. 对书本的害怕"
-],
-answer:"A"
-},
-
-{
-type:"choice",
-q:"8. 作者把读书比作与朋友交谈，说明阅读需要（　　）。",
-options:[
-"A. 思考和交流",
-"B. 快速翻页",
-"C. 只看插图",
-"D. 背价格"
-],
-answer:"A"
-},
-
-{
-type:"fill",
-q:"9. 作者认为同一本书每读一遍都会有新的________。",
-answer:"收获"
-},
-
-{
-type:"choice",
-q:"10. 本文最重要的观点是（　　）。",
-options:[
-"A. 一本好书值得反复阅读",
-"B. 书只能读一次",
-"C. 旅行不能读书",
-"D. 书没有价值"
-],
-answer:"A"
-}
-
+["choice","如果只能带一样东西环游世界，作者会选择（　　）。",["A.书","B.钱","C.玩具","D.食物"],"A"],
+["fill","作者把书比作自己的________。","朋友"],
+["choice","作者为什么愿意反复读同一本书？",["A.每次阅读都有新的发现","B.没有其他书","C.忘记内容","D.书很短"],"A"],
+["choice","作者认为读书应该（　　）。",["A.思考、品味、发现","B.快速翻页","C.只看标题","D.不思考"],"A"],
+["fill","一本你喜爱的书就是一位________。","朋友"],
+["choice","本文主要表达作者对（　　）的热爱。",["A.读书","B.旅行","C.金钱","D.游戏"],"A"],
+["choice","作者把读书比作和朋友交谈，说明阅读需要（　　）。",["A.思考和交流","B.快速翻页","C.只看图片","D.记价格"],"A"],
+["fill","同一本书每读一遍都会有新的________。","收获"],
+["choice","一本好书为什么值得反复阅读？",["A.能不断发现新的内容","B.因为很贵","C.因为很厚","D.因为没有别的书"],"A"],
+["choice","本文最重要的观点是（　　）。",["A.一本好书值得反复阅读","B.书只能读一次","C.旅行不能读书","D.书没有价值"],"A"]
 ]}
 
 };
 
 
-/* =====================================================
-   当前试卷
-===================================================== */
+/* =========================================================
+   当前状态
+========================================================= */
 
-let currentLesson = null;
+let currentLesson=0;
 
 
-/* =====================================================
-   打开课文
-===================================================== */
+/* =========================================================
+   打开试卷
+========================================================= */
 
-function openLesson(id,name,unit){
+function openLesson(id){
 
-    currentLesson = id;
+    currentLesson=id;
+
+    const data=lessons[id];
 
     document.getElementById("homePage").style.display="none";
     document.getElementById("studyPage").style.display="block";
 
-    document.getElementById("lessonTitle").innerText =
-        name + " · 课文试卷";
+    document.getElementById("lessonTitle").innerText=
+        data.name+" · 专项试卷";
 
-    document.getElementById("lessonUnit").innerText =
-        unit + " · 满分100分";
+    document.getElementById("lessonUnit").innerText=
+        data.unit+" · 共10题 · 满分100分";
 
-    renderQuiz(id);
+    renderQuiz();
 
     window.scrollTo(0,0);
 }
 
 
-/* =====================================================
-   生成试卷
-===================================================== */
+/* =========================================================
+   生成题目
+========================================================= */
 
-function renderQuiz(id){
+function renderQuiz(){
 
-    const data = quizData[id];
+    const data=lessons[currentLesson];
 
-    if(!data){
-        document.getElementById("quizArea").innerHTML =
-        "<p>暂时没有找到这篇课文的试卷。</p>";
-        return;
-    }
-
-    let html = `
-        <div class="quiz-intro">
-            📖 <b>${data.title}</b>课文专项测试<br>
-            共10题，每题10分，满分100分。<br>
-            请认真阅读题目后再选择答案。
-        </div>
+    let html=`
+    <div class="quiz-intro">
+        📖 <b>${data.name}</b>课文专项测试<br>
+        共10题，每题10分，满分100分。<br>
+        请认真完成所有题目后再提交。
+    </div>
     `;
 
-    data.questions.forEach((item,index)=>{
+    data.questions.forEach((q,index)=>{
 
-        html += `
+        html+=`
         <div class="question" id="question${index}">
-            <div class="question-title">
-                ${item.q}
-            </div>
+        <div class="question-title">
+        ${q[1]}
+        </div>
         `;
 
-        if(item.type === "choice"){
+        if(q[0]==="choice"){
 
-            item.options.forEach(option=>{
+            q[2].forEach(option=>{
 
-                const letter = option.charAt(0);
+                const letter=option.substring(0,1);
 
-                html += `
+                html+=`
                 <label class="option">
-                    <input
-                        type="radio"
-                        name="q${index}"
-                        value="${letter}">
-                    ${option}
+                <input type="radio"
+                name="q${index}"
+                value="${letter}">
+                ${option}
                 </label>
                 `;
 
             });
 
-        }
+        }else{
 
-        if(item.type === "fill"){
-
-            html += `
-                <input
-                    class="fill-input"
-                    id="fill${index}"
-                    type="text"
-                    placeholder="请输入答案">
+            html+=`
+            <input
+            class="fill-input"
+            id="fill${index}"
+            type="text"
+            placeholder="请输入答案">
             `;
 
         }
 
-        html += `
-            <div class="answer-box" id="answer${index}">
-                ✅ 正确答案：${item.answer}
-            </div>
+        html+=`
+        <div class="answer-box" id="answer${index}">
+        ✅ 正确答案：${q[3]}
+        </div>
         </div>
         `;
 
@@ -2967,170 +894,139 @@ function renderQuiz(id){
     document.getElementById("resultArea").innerHTML="";
 
     document.getElementById("submitBtn").style.display="block";
-
     document.getElementById("retryBtn").style.display="none";
 }
 
 
-/* =====================================================
+/* =========================================================
    提交试卷
-===================================================== */
+========================================================= */
 
 function submitQuiz(){
 
-    const data = quizData[currentLesson];
+    const data=lessons[currentLesson];
 
-    if(!data) return;
+    let score=0;
+    let answered=0;
 
-    let score = 0;
-    let answered = 0;
-
-    data.questions.forEach((item,index)=>{
+    data.questions.forEach((q,index)=>{
 
         let userAnswer="";
 
-        if(item.type==="choice"){
+        if(q[0]==="choice"){
 
-            const selected =
-                document.querySelector(
-                    `input[name="q${index}"]:checked`
-                );
+            const selected=document.querySelector(
+                `input[name="q${index}"]:checked`
+            );
 
             if(selected){
-
                 userAnswer=selected.value;
                 answered++;
-
             }
 
-        }
+        }else{
 
-        if(item.type==="fill"){
-
-            const input =
-                document.getElementById("fill"+index);
+            const input=document.getElementById("fill"+index);
 
             if(input){
-
                 userAnswer=input.value.trim();
 
                 if(userAnswer){
                     answered++;
                 }
-
             }
 
         }
 
+        const question=document.getElementById("question"+index);
+        const answer=document.getElementById("answer"+index);
 
-        const question =
-            document.getElementById(
-                "question"+index
-            );
+        question.classList.remove("correct","wrong");
 
-        const answerBox =
-            document.getElementById(
-                "answer"+index
-            );
+        /*
+          填空题允许答案包含在标准答案中，
+          例如“勤劳善良”也可以识别。
+        */
 
+        let right=false;
 
-        /* 判断 */
+        if(q[0]==="choice"){
+            right=userAnswer===q[3];
+        }else{
+            right=checkFill(userAnswer,q[3]);
+        }
 
-        if(userAnswer === item.answer){
+        if(right){
 
-            score += 10;
-
+            score+=10;
             question.classList.add("correct");
 
         }else{
 
             question.classList.add("wrong");
-
-            answerBox.style.display="block";
+            answer.style.display="block";
 
         }
 
     });
 
 
-    /* 防止空题直接提交 */
+    if(answered<data.questions.length){
 
-    if(answered < data.questions.length){
+        const ok=confirm(
+            "还有 "+(data.questions.length-answered)+
+            " 道题没有完成，确定要交卷吗？"
+        );
 
-        const ok =
-            confirm(
-                "还有 " +
-                (data.questions.length-answered) +
-                " 道题没有完成，确定要交卷吗？"
-            );
-
-        if(!ok) return;
+        if(!ok)return;
 
     }
 
 
     let level="";
 
-    if(score>=90){
-
-        level="🏆 太棒了！优秀！";
-
+    if(score===100){
+        level="🏆 满分！太厉害了！";
+    }else if(score>=90){
+        level="🌟 优秀！继续保持！";
     }else if(score>=80){
-
-        level="🌟 很不错！继续努力！";
-
+        level="👏 很不错！";
     }else if(score>=60){
-
-        level="👍 及格了，再认真复习一下！";
-
+        level="👍 及格了，再认真复习！";
     }else{
-
         level="💪 不要灰心，再挑战一次！";
-
     }
 
 
     document.getElementById("resultArea").innerHTML=`
+    <div class="result-card">
 
-        <div class="result-card">
+        <div class="result-text">${level}</div>
 
-            <div class="result-text">
-                ${level}
-            </div>
+        <div class="result-score">${score}分</div>
 
-            <div class="result-score">
-                ${score}分
-            </div>
-
-            <div>
-                共10题 · 答对 ${score/10} 题
-            </div>
-
-            <div class="quiz-tip">
-                错题已经在下面显示正确答案。
-            </div>
-
+        <div>
+        共10题 · 答对 ${score/10} 题
         </div>
 
+        <div class="quiz-tip">
+        红色题目为错题，下面已经显示正确答案。
+        </div>
+
+    </div>
     `;
 
-
     document.getElementById("submitBtn").style.display="none";
-
     document.getElementById("retryBtn").style.display="block";
 
 
     /* 保存最高成绩 */
 
-    let scores =
-        JSON.parse(
-            localStorage.getItem("lessonScores")
-        ) || {};
+    let scores=
+        JSON.parse(localStorage.getItem("lessonScores"))||{};
 
-    if(
-        !scores[currentLesson] ||
-        score > scores[currentLesson]
-    ){
+    if(!scores[currentLesson]||
+       score>scores[currentLesson]){
 
         scores[currentLesson]=score;
 
@@ -3138,16 +1034,13 @@ function submitQuiz(){
             "lessonScores",
             JSON.stringify(scores)
         );
-
     }
 
 
-    /* 做过试卷就算完成 */
+    /* 做过试卷就记录完成 */
 
-    let completed =
-        JSON.parse(
-            localStorage.getItem("completedLessons")
-        ) || [];
+    let completed=
+        JSON.parse(localStorage.getItem("completedLessons"))||[];
 
     if(!completed.includes(currentLesson)){
 
@@ -3163,134 +1056,135 @@ function submitQuiz(){
     updateProgress();
 
     window.scrollTo(0,0);
-
 }
 
 
-/* =====================================================
-   重新挑战
-===================================================== */
+/* =========================================================
+   填空题智能判断
+========================================================= */
+
+function checkFill(user,answer){
+
+    if(!user)return false;
+
+    user=user
+        .replace(/[，。、“”‘’；：！？\s]/g,"")
+        .toLowerCase();
+
+    answer=answer
+        .replace(/[，。、“”‘’；：！？\s]/g,"")
+        .toLowerCase();
+
+    if(user===answer)return true;
+
+    /*
+      允许标准答案包含在用户答案中
+    */
+
+    if(answer.length>=3 && user.includes(answer)){
+        return true;
+    }
+
+    return false;
+}
+
+
+/* =========================================================
+   再做一次
+========================================================= */
 
 function retryQuiz(){
 
-    renderQuiz(currentLesson);
+    renderQuiz();
 
     window.scrollTo(0,0);
-
 }
 
 
-/* =====================================================
+/* =========================================================
    返回首页
-===================================================== */
+========================================================= */
 
 function goHome(){
 
     document.getElementById("studyPage").style.display="none";
-
     document.getElementById("homePage").style.display="block";
 
     updateProgress();
 
     window.scrollTo(0,0);
-
 }
 
 
-/* =====================================================
-   更新学习进度
-===================================================== */
+/* =========================================================
+   学习进度
+========================================================= */
 
 function updateProgress(){
 
-    let completed =
-        JSON.parse(
-            localStorage.getItem("completedLessons")
-        ) || [];
+    let completed=
+        JSON.parse(localStorage.getItem("completedLessons"))||[];
 
     let total=25;
 
     let count=completed.length;
 
-    document.getElementById("progressText").innerText =
+    document.getElementById("progressText").innerText=
         count+" / "+total;
 
-    document.getElementById("progressBar").style.width =
+    document.getElementById("progressBar").style.width=
         (count/total*100)+"%";
 
 
-    for(let i=1;i<=total;i++){
+    for(let i=1;i<=25;i++){
 
-        const status =
-            document.getElementById("status"+i);
+        const status=document.getElementById("status"+i);
 
-        if(status){
+        if(!status)continue;
 
-            if(completed.includes(i)){
+        if(completed.includes(i)){
 
-                status.innerText="✓";
+            status.innerText="✓";
+            status.classList.add("done");
 
-                status.classList.add("done");
+        }else{
 
-            }else{
-
-                status.innerText="○";
-
-                status.classList.remove("done");
-
-            }
+            status.innerText="○";
+            status.classList.remove("done");
 
         }
 
     }
-
 }
 
 
-/* =====================================================
-   搜索课文
-===================================================== */
+/* =========================================================
+   搜索
+========================================================= */
 
 function searchLesson(){
 
-    let keyword =
-        document
-        .getElementById("searchInput")
+    const keyword=
+        document.getElementById("searchInput")
         .value
         .trim()
         .toLowerCase();
 
+    document.querySelectorAll(".lesson").forEach(lesson=>{
 
-    let lessons =
-        document.querySelectorAll(".lesson");
+        const name=
+            lesson.getAttribute("data-name").toLowerCase();
 
-
-    lessons.forEach(function(lesson){
-
-        let name =
-            lesson
-            .getAttribute("data-name")
-            .toLowerCase();
-
-
-        if(name.includes(keyword)){
-
-            lesson.style.display="flex";
-
-        }else{
-
-            lesson.style.display="none";
-
-        }
+        lesson.style.display=
+            name.includes(keyword)?"flex":"none";
 
     });
-
 }
 
 
-/* =====================================================
+/* =========================================================
    初始化
-===================================================== */
+========================================================= */
 
 updateProgress();
 
